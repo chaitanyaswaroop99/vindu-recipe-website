@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 const CategoriesSection = styled.section`
   padding: 80px 0;
@@ -132,8 +131,43 @@ const Spinner = styled.div`
 `;
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Static categories data
+  const categories = [
+    {
+      _id: 'non_vegetarian',
+      name: 'Non-Vegetarian',
+      description: 'Explore delicious meat, chicken, seafood, and egg-based recipes',
+      hasSubcategories: true,
+      subcategories: ['Chicken', 'Lamb', 'Seafood', 'Beef', 'Pork'],
+      recipeCount: 150,
+      color: '#e74c3c'
+    },
+    {
+      _id: 'vegetarian',
+      name: 'Vegetarian',
+      description: 'Discover nutritious plant-based recipes with vegetables, paneer, and more',
+      hasSubcategories: true,
+      subcategories: ['Vegetables', 'Paneer', 'Tofu', 'Salads', 'Cashews', 'Dal'],
+      recipeCount: 300,
+      color: '#27ae60'
+    },
+    {
+      _id: 'vegan',
+      name: 'Vegan',
+      description: 'Plant-based recipes without any animal products',
+      hasSubcategories: false,
+      recipeCount: 50,
+      color: '#2ecc71'
+    },
+    {
+      _id: 'desserts',
+      name: 'Desserts',
+      description: 'Sweet treats and desserts from around the world',
+      hasSubcategories: false,
+      recipeCount: 80,
+      color: '#f39c12'
+    }
+  ];
 
   // Food images for each category
   const categoryImages = {
@@ -142,33 +176,6 @@ const Categories = () => {
     'vegan': 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
     'desserts': 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop&crop=center'
   };
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await axios.get('/api/categories');
-        setCategories(response.data);
-      } catch (error) {
-        console.error('Error fetching categories:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
-  if (loading) {
-    return (
-      <CategoriesSection>
-        <Container>
-          <LoadingContainer>
-            <Spinner />
-          </LoadingContainer>
-        </Container>
-      </CategoriesSection>
-    );
-  }
 
   return (
     <CategoriesSection id="categories">
