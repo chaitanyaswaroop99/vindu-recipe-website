@@ -152,42 +152,224 @@ const DifficultyBadge = styled.div`
 const CategoryRecipes = () => {
   const { id, subcategoryId, cuisineId } = useParams();
 
-  // Static sample recipes
-  const sampleRecipes = [
-    {
-      _id: 'recipe_1',
-      name: 'Sample Recipe 1',
-      description: 'A delicious sample recipe with amazing flavors',
-      image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
-      rating: 4.5,
-      totalTime: 30,
-      servings: 4,
-      difficulty: 'Easy',
-      cuisine: cuisineId || 'Indian'
-    },
-    {
-      _id: 'recipe_2',
-      name: 'Sample Recipe 2',
-      description: 'Another wonderful recipe to try at home',
-      image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
-      rating: 4.3,
-      totalTime: 45,
-      servings: 6,
-      difficulty: 'Medium',
-      cuisine: cuisineId || 'Indian'
-    },
-    {
-      _id: 'recipe_3',
-      name: 'Sample Recipe 3',
-      description: 'A classic recipe with modern twists',
-      image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop&crop=center',
-      rating: 4.7,
-      totalTime: 60,
-      servings: 8,
-      difficulty: 'Hard',
-      cuisine: cuisineId || 'Indian'
-    }
-  ];
+  // Category-specific recipes
+  const getRecipesForCategory = () => {
+    const recipes = {
+      'chicken': [
+        {
+          _id: 'chicken_1',
+          name: 'Butter Chicken',
+          description: 'Creamy tomato-based curry with tender chicken pieces',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'chicken_2',
+          name: 'Chicken Tikka Masala',
+          description: 'Grilled chicken in spiced tomato cream sauce',
+          image: 'https://images.unsplash.com/photo-1588166524941-cf385776638c?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 50,
+          servings: 6,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'chicken_3',
+          name: 'Chicken Biryani',
+          description: 'Aromatic basmati rice layered with spiced chicken',
+          image: 'https://images.unsplash.com/photo-1631515243349-7e05b975742a?w=400&h=300&fit=crop&crop=center',
+          rating: 4.9,
+          totalTime: 90,
+          servings: 6,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Indian'
+        }
+      ],
+      'lamb': [
+        {
+          _id: 'lamb_1',
+          name: 'Mutton Curry',
+          description: 'Rich and spicy lamb curry with aromatic spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 75,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_2',
+          name: 'Mutton Biryani',
+          description: 'Fragrant rice with tender mutton and saffron',
+          image: 'https://images.unsplash.com/photo-1631515243349-7e05b975742a?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 120,
+          servings: 6,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_3',
+          name: 'Lamb Rogan Josh',
+          description: 'Traditional Kashmiri lamb curry with yogurt',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 60,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        }
+      ],
+      'seafood': [
+        {
+          _id: 'seafood_1',
+          name: 'Fish Curry',
+          description: 'Spicy coconut-based fish curry with tamarind',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 35,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'seafood_2',
+          name: 'Prawn Masala',
+          description: 'Succulent prawns in spicy onion-tomato gravy',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'seafood_3',
+          name: 'Seafood Biryani',
+          description: 'Mixed seafood biryani with aromatic spices',
+          image: 'https://images.unsplash.com/photo-1631515243349-7e05b975742a?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 80,
+          servings: 6,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Indian'
+        }
+      ],
+      'vegetables': [
+        {
+          _id: 'veg_1',
+          name: 'Aloo Gobi',
+          description: 'Spiced potatoes and cauliflower curry',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 30,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'veg_2',
+          name: 'Baingan Bharta',
+          description: 'Smoky roasted eggplant curry',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 40,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'veg_3',
+          name: 'Mixed Vegetable Curry',
+          description: 'Colorful vegetables in coconut curry',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 35,
+          servings: 6,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        }
+      ],
+      'paneer': [
+        {
+          _id: 'paneer_1',
+          name: 'Paneer Butter Masala',
+          description: 'Creamy tomato curry with soft paneer cubes',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 35,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'paneer_2',
+          name: 'Palak Paneer',
+          description: 'Soft paneer in creamy spinach curry',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 30,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'paneer_3',
+          name: 'Paneer Tikka',
+          description: 'Grilled paneer cubes with spices',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        }
+      ]
+    };
+
+    return recipes[subcategoryId] || [
+      {
+        _id: 'default_1',
+        name: 'Sample Recipe 1',
+        description: 'A delicious sample recipe with amazing flavors',
+        image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+        rating: 4.5,
+        totalTime: 30,
+        servings: 4,
+        difficulty: 'Easy',
+        cuisine: cuisineId || 'Indian'
+      },
+      {
+        _id: 'default_2',
+        name: 'Sample Recipe 2',
+        description: 'Another wonderful recipe to try at home',
+        image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+        rating: 4.3,
+        totalTime: 45,
+        servings: 6,
+        difficulty: 'Medium',
+        cuisine: cuisineId || 'Indian'
+      },
+      {
+        _id: 'default_3',
+        name: 'Sample Recipe 3',
+        description: 'A classic recipe with modern twists',
+        image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop&crop=center',
+        rating: 4.7,
+        totalTime: 60,
+        servings: 8,
+        difficulty: 'Hard',
+        cuisine: cuisineId || 'Indian'
+      }
+    ];
+  };
+
+  const sampleRecipes = getRecipesForCategory();
 
   const getPageTitle = () => {
     if (cuisineId) {
