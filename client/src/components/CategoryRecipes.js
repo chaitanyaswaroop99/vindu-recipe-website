@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
-import { FiArrowLeft, FiClock, FiStar, FiUsers, FiPlay, FiSearch, FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import axios from 'axios';
+import { FiArrowLeft, FiClock, FiUsers, FiStar } from 'react-icons/fi';
 
-const CategoryContainer = styled.div`
+const RecipesContainer = styled.div`
   padding: 120px 0 80px;
   min-height: 100vh;
-  background: #f8f9fa;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 1;
 `;
 
 const Container = styled.div`
@@ -21,61 +23,36 @@ const BackButton = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #28a745;
+  color: white;
   text-decoration: none;
   font-weight: 500;
   margin-bottom: 2rem;
-  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 
   &:hover {
-    color: #218838;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
   }
 `;
 
-const CategoryHeader = styled.div`
-  text-align: center;
-  margin-bottom: 3rem;
-`;
-
-const CategoryTitle = styled.h1`
+const PageTitle = styled.h1`
   font-size: 2.5rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 
-const CategoryDescription = styled.p`
+const PageSubtitle = styled.p`
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 2rem;
-`;
-
-const SearchContainer = styled.div`
-  display: flex;
-  justify-content: center;
   margin-bottom: 3rem;
-`;
-
-const SearchInput = styled.input`
-  padding: 1rem 1.5rem;
-  border: 2px solid #e9ecef;
-  border-radius: 25px;
-  outline: none;
-  font-size: 1rem;
-  width: 400px;
-  transition: border-color 0.3s ease;
-  
-  &:focus {
-    border-color: #28a745;
-  }
-`;
-
-const SearchIcon = styled(FiSearch)`
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
+  text-align: center;
 `;
 
 const RecipesGrid = styled.div`
@@ -85,12 +62,14 @@ const RecipesGrid = styled.div`
 `;
 
 const RecipeCard = styled(motion.div)`
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 
   &:hover {
     transform: translateY(-5px);
@@ -99,16 +78,12 @@ const RecipeCard = styled(motion.div)`
 `;
 
 const RecipeImage = styled.div`
+  width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  color: white;
   background-image: url(${props => props.image});
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 `;
 
 const RecipeContent = styled.div`
@@ -123,17 +98,18 @@ const RecipeHeader = styled.div`
 `;
 
 const RecipeName = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #333;
   margin: 0;
+  flex: 1;
 `;
 
 const RecipeRating = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  color: #ffc107;
+  gap: 0.25rem;
+  color: #f39c12;
   font-weight: 500;
 `;
 
@@ -152,368 +128,106 @@ const RecipeMeta = styled.div`
 const MetaItem = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
   color: #666;
   font-size: 0.9rem;
 `;
 
-const RecipeFooter = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const DifficultyBadge = styled.span`
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
+const DifficultyBadge = styled.div`
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
-  background: ${props => {
-    switch(props.level) {
-      case 'Easy': return '#d4edda';
-      case 'Medium': return '#fff3cd';
-      case 'Hard': return '#f8d7da';
-      default: return '#e2e3e5';
-    }
-  }};
-  color: ${props => {
-    switch(props.level) {
-      case 'Easy': return '#155724';
-      case 'Medium': return '#856404';
-      case 'Hard': return '#721c24';
-      default: return '#383d41';
-    }
-  }};
-`;
-
-const WatchButton = styled.button`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #28a745;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-
-  &:hover {
-    background: #218838;
-  }
-`;
-
-const IngredientsSection = styled.div`
-  margin-top: 1rem;
-  border-top: 1px solid #e9ecef;
-  padding-top: 1rem;
-`;
-
-const IngredientsToggle = styled.button`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: none;
-  border: none;
-  color: #28a745;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  padding: 0.5rem 0;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #218838;
-  }
-`;
-
-const IngredientsList = styled.div`
-  margin-top: 0.5rem;
-  padding-left: 1rem;
-`;
-
-const IngredientItem = styled.div`
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 0.3rem;
-  padding-left: 0.5rem;
-  position: relative;
-
-  &::before {
-    content: '•';
-    color: #28a745;
-    position: absolute;
-    left: 0;
-  }
-`;
-
-const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-`;
-
-const Spinner = styled.div`
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #28a745;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+  background: ${props => 
+    props.level === 'Easy' ? '#d4edda' :
+    props.level === 'Medium' ? '#fff3cd' : '#f8d7da'
+  };
+  color: ${props => 
+    props.level === 'Easy' ? '#155724' :
+    props.level === 'Medium' ? '#856404' : '#721c24'
+  };
 `;
 
 const CategoryRecipes = () => {
   const { id, subcategoryId, cuisineId } = useParams();
-  const [recipes, setRecipes] = useState([]);
-  const [category, setCategory] = useState(null);
-  const [subcategory, setSubcategory] = useState(null);
-  const [cuisine, setCuisine] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [expandedIngredients, setExpandedIngredients] = useState({});
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const categoryResponse = await axios.get(`/api/categories/${id}`);
-        setCategory(categoryResponse.data);
-        
-        // If we have a subcategory, get its info and recipes
-        if (subcategoryId) {
-          const subcategoryData = categoryResponse.data.subcategories?.find(
-            sub => sub._id === subcategoryId
-          );
-          setSubcategory(subcategoryData);
-          
-          // If we have a cuisine, get its info
-          let cuisineData = null;
-          if (cuisineId && subcategoryData?.hasCuisines) {
-            cuisineData = subcategoryData.cuisines?.find(
-              cuisine => cuisine._id === cuisineId
-            );
-            setCuisine(cuisineData);
-          }
-          
-          // Fetch recipes based on subcategory
-          let allRecipes = [];
-          if (subcategoryId === 'chicken') {
-            const recipesResponse = await axios.get('/api/chicken-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'seafood') {
-            const recipesResponse = await axios.get('/api/seafood-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'lamb') {
-            const recipesResponse = await axios.get('/api/lamb-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'goat') {
-            const recipesResponse = await axios.get('/api/goat-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'beef') {
-            const recipesResponse = await axios.get('/api/beef-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'pork') {
-            const recipesResponse = await axios.get('/api/pork-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'vegetarian') {
-            const recipesResponse = await axios.get('/api/vegetarian-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'vegan') {
-            const recipesResponse = await axios.get('/api/vegan-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'desserts') {
-            const recipesResponse = await axios.get('/api/dessert-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'vegetables') {
-            const recipesResponse = await axios.get('/api/vegetable-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'paneer') {
-            const recipesResponse = await axios.get('/api/paneer-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'tofu') {
-            const recipesResponse = await axios.get('/api/tofu-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'salads') {
-            const recipesResponse = await axios.get('/api/salad-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'cashews') {
-            const recipesResponse = await axios.get('/api/cashew-recipes');
-            allRecipes = recipesResponse.data;
-          } else if (subcategoryId === 'dal') {
-            const recipesResponse = await axios.get('/api/dal-recipes');
-            allRecipes = recipesResponse.data;
-          }
-          
-          // Filter recipes by cuisine if cuisineId is provided
-          if (cuisineId && cuisineData) {
-            const filteredRecipes = allRecipes.filter(recipe => 
-              recipe.cuisine.toLowerCase() === cuisineData.name.toLowerCase()
-            );
-            setRecipes(filteredRecipes);
-          } else {
-            setRecipes(allRecipes);
-          }
-        } else {
-          // If no subcategory, check if we're accessing a category directly
-          if (id === subcategoryId) {
-            // Direct category access (vegetarian, vegan, desserts)
-            let allRecipes = [];
-            if (subcategoryId === 'vegetarian') {
-              const recipesResponse = await axios.get('/api/vegetarian-recipes');
-              allRecipes = recipesResponse.data;
-            } else if (subcategoryId === 'vegan') {
-              const recipesResponse = await axios.get('/api/vegan-recipes');
-              allRecipes = recipesResponse.data;
-            } else if (subcategoryId === 'desserts') {
-              const recipesResponse = await axios.get('/api/dessert-recipes');
-              allRecipes = recipesResponse.data;
-            }
-            setRecipes(allRecipes);
-          } else {
-            // If no subcategory, show empty for now
-            setRecipes([]);
-          }
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Static sample recipes
+  const sampleRecipes = [
+    {
+      _id: 'recipe_1',
+      name: 'Sample Recipe 1',
+      description: 'A delicious sample recipe with amazing flavors',
+      image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+      rating: 4.5,
+      totalTime: 30,
+      servings: 4,
+      difficulty: 'Easy',
+      cuisine: cuisineId || 'Indian'
+    },
+    {
+      _id: 'recipe_2',
+      name: 'Sample Recipe 2',
+      description: 'Another wonderful recipe to try at home',
+      image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+      rating: 4.3,
+      totalTime: 45,
+      servings: 6,
+      difficulty: 'Medium',
+      cuisine: cuisineId || 'Indian'
+    },
+    {
+      _id: 'recipe_3',
+      name: 'Sample Recipe 3',
+      description: 'A classic recipe with modern twists',
+      image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop&crop=center',
+      rating: 4.7,
+      totalTime: 60,
+      servings: 8,
+      difficulty: 'Hard',
+      cuisine: cuisineId || 'Indian'
+    }
+  ];
 
-    fetchData();
-  }, [id, subcategoryId, cuisineId]);
-
-  const filteredRecipes = recipes.filter(recipe =>
-    recipe.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    recipe.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    recipe.cuisine.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const toggleIngredients = (recipeId) => {
-    setExpandedIngredients(prev => ({
-      ...prev,
-      [recipeId]: !prev[recipeId]
-    }));
+  const getPageTitle = () => {
+    if (cuisineId) {
+      return `${subcategoryId} - ${cuisineId}`;
+    }
+    return subcategoryId || 'Recipes';
   };
-
-  const recipeEmojis = {
-    // Chicken recipes
-    'Butter Chicken': '🍛',
-    'Chicken Tikka Masala': '🍗',
-    'Grilled Lemon Herb Chicken': '🍋',
-    'Chicken Parmesan': '🧀',
-    'Thai Basil Chicken': '🌶️',
-    'Honey Garlic Chicken': '🍯',
-    'Chicken Curry': '🥘',
-    'BBQ Chicken Wings': '🍖',
-    'Chicken Biryani': '🍚',
-    'Chicken Teriyaki': '🍱',
-    'Chicken Shawarma': '🥙',
-    'Chicken Alfredo': '🍝',
-    // Seafood recipes
-    'Grilled Salmon': '🐟',
-    'Shrimp Scampi': '🦐',
-    'Fish Tacos': '🌮',
-    'Lobster Thermidor': '🦞',
-    'Crab Cakes': '🦀',
-    'Miso Glazed Cod': '🐠'
-  };
-
-  if (loading) {
-    return (
-      <CategoryContainer>
-        <Container>
-          <LoadingContainer>
-            <Spinner />
-          </LoadingContainer>
-        </Container>
-      </CategoryContainer>
-    );
-  }
 
   return (
-    <CategoryContainer>
+    <RecipesContainer>
       <Container>
-              <BackButton to={
-                cuisine ? `/category/${id}/${subcategoryId}/cuisines` :
-                subcategory ? `/category/${id}` : "/"
-              }>
-                <FiArrowLeft />
-                Back to {
-                  cuisine ? `${subcategory?.name} Cuisines` :
-                  subcategory ? category?.name : "Home"
-                }
-              </BackButton>
-        
-        {(category || subcategory) && (
-          <CategoryHeader>
-            <CategoryTitle>
-              {cuisine ? cuisine.icon : subcategory ? subcategory.icon : category?.icon} {
-                cuisine ? `${subcategory?.name} - ${cuisine.name}` :
-                subcategory ? subcategory.name : category?.name
-              }
-            </CategoryTitle>
-            <CategoryDescription>
-              {cuisine ? cuisine.description :
-               subcategory ? subcategory.description : category?.description}
-            </CategoryDescription>
-            <div style={{
-              background: '#e8f5e8',
-              padding: '0.5rem 1rem',
-              borderRadius: '20px',
-              fontSize: '0.9rem',
-              color: '#28a745',
-              marginTop: '1rem',
-              textAlign: 'center',
-              display: 'inline-block'
-            }}>
-              📊 {filteredRecipes.length} recipes available
-            </div>
-          </CategoryHeader>
-        )}
+        <BackButton to={cuisineId ? `/category/${id}/${subcategoryId}/cuisines` : `/category/${id}`}>
+          <FiArrowLeft />
+          Back to {cuisineId ? subcategoryId : (id === 'non_vegetarian' ? 'Non-Vegetarian' : 'Vegetarian')}
+        </BackButton>
 
-        {recipes.length > 0 && (
-          <SearchContainer>
-            <div style={{ position: 'relative' }}>
-              <SearchInput
-                type="text"
-                placeholder={`Search ${category?.name.toLowerCase()} recipes...`}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <SearchIcon />
-            </div>
-          </SearchContainer>
-        )}
+        <PageTitle>{getPageTitle()}</PageTitle>
         
-        {filteredRecipes.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '2rem', color: '#666' }}>
-            {recipes.length === 0 ? 
-              `No recipes available for ${category?.name} category yet.` : 
-              'No recipes found matching your search.'
-            }
-          </div>
-        ) : (
-          <RecipesGrid>
-            {filteredRecipes.map((recipe, index) => (
+        <PageSubtitle>
+          Discover amazing recipes in this category
+        </PageSubtitle>
+
+        <RecipesGrid>
+          {sampleRecipes.map((recipe, index) => (
+            <Link 
+              key={recipe._id} 
+              to={`/recipe/${recipe._id}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open(`/recipe/${recipe._id}`, '_blank');
+              }}
+            >
               <RecipeCard
-                key={recipe._id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => window.open(`/recipe/${recipe._id}`, '_blank')}
               >
-                <RecipeImage image={recipe.image}>
-                </RecipeImage>
+                <RecipeImage image={recipe.image} />
                 
                 <RecipeContent>
                   <RecipeHeader>
@@ -523,67 +237,20 @@ const CategoryRecipes = () => {
                       {recipe.rating}
                     </RecipeRating>
                   </RecipeHeader>
-                  
                   <RecipeDescription>{recipe.description}</RecipeDescription>
-                  
                   <RecipeMeta>
-                    <MetaItem>
-                      <FiClock />
-                      {recipe.totalTime} min
-                    </MetaItem>
-                    <MetaItem>
-                      <FiUsers />
-                      {recipe.servings} servings
-                    </MetaItem>
-                    <MetaItem>
-                      🍽️ {recipe.cuisine}
-                    </MetaItem>
+                    <MetaItem><FiClock /> {recipe.totalTime} min</MetaItem>
+                    <MetaItem><FiUsers /> {recipe.servings} servings</MetaItem>
+                    <MetaItem>🍽️ {recipe.cuisine}</MetaItem>
                   </RecipeMeta>
-                  
-                  <RecipeFooter>
-                    <DifficultyBadge level={recipe.difficulty}>
-                      {recipe.difficulty}
-                    </DifficultyBadge>
-                    
-                    {recipe.youtubeLink && (
-                      <WatchButton onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(recipe.youtubeLink, '_blank');
-                      }}>
-                        <FiPlay />
-                        Watch
-                      </WatchButton>
-                    )}
-                  </RecipeFooter>
-
-                  {recipe.ingredients && recipe.ingredients.length > 0 && (
-                    <IngredientsSection>
-                      <IngredientsToggle onClick={(e) => {
-                        e.stopPropagation();
-                        toggleIngredients(recipe._id);
-                      }}>
-                        {expandedIngredients[recipe._id] ? <FiChevronUp /> : <FiChevronDown />}
-                        Ingredients ({recipe.ingredients.length})
-                      </IngredientsToggle>
-                      
-                      {expandedIngredients[recipe._id] && (
-                        <IngredientsList>
-                          {recipe.ingredients.map((ingredient, idx) => (
-                            <IngredientItem key={idx}>
-                              {ingredient}
-                            </IngredientItem>
-                          ))}
-                        </IngredientsList>
-                      )}
-                    </IngredientsSection>
-                  )}
+                  <DifficultyBadge level={recipe.difficulty}>{recipe.difficulty}</DifficultyBadge>
                 </RecipeContent>
               </RecipeCard>
-            ))}
-          </RecipesGrid>
-        )}
+            </Link>
+          ))}
+        </RecipesGrid>
       </Container>
-    </CategoryContainer>
+    </RecipesContainer>
   );
 };
 

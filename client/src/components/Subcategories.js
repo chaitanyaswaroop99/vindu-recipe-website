@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
-import axios from 'axios';
 
 const SubcategoriesContainer = styled.div`
   padding: 120px 0 80px;
   min-height: 100vh;
-  background: #f8f9fa;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 1;
 `;
 
 const Container = styled.div`
@@ -21,52 +23,56 @@ const BackButton = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #28a745;
+  color: white;
   text-decoration: none;
   font-weight: 500;
   margin-bottom: 2rem;
-  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 
   &:hover {
-    color: #218838;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
   }
 `;
 
-const CategoryHeader = styled.div`
-  text-align: center;
-  margin-bottom: 3rem;
-`;
-
-const CategoryTitle = styled.h1`
+const PageTitle = styled.h1`
   font-size: 2.5rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 
-const CategoryDescription = styled.p`
+const PageSubtitle = styled.p`
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
 `;
 
 const SubcategoriesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 `;
 
 const SubcategoryCard = styled(motion.div)`
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  border: 1px solid #e9ecef;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 
   &:hover {
     transform: translateY(-5px);
@@ -82,11 +88,6 @@ const SubcategoryCard = styled(motion.div)`
     height: 4px;
     background: ${props => props.color || '#28a745'};
   }
-`;
-
-const SubcategoryIcon = styled.div`
-  font-size: 3rem;
-  margin-bottom: 1rem;
 `;
 
 const SubcategoryName = styled.h3`
@@ -108,74 +109,29 @@ const SubcategoryCount = styled.div`
   font-size: 0.9rem;
 `;
 
-const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-`;
-
-const Spinner = styled.div`
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #28a745;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
-
 const Subcategories = () => {
   const { id } = useParams();
-  const [category, setCategory] = useState(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchCategory = async () => {
-      try {
-        const response = await axios.get(`/api/categories/${id}`);
-        setCategory(response.data);
-      } catch (error) {
-        console.error('Error fetching category:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Static subcategories data
+  const subcategoriesData = {
+    'non_vegetarian': [
+      { _id: 'chicken', name: 'Chicken', description: 'Delicious chicken recipes from around the world', recipeCount: 50, color: '#e74c3c' },
+      { _id: 'lamb', name: 'Lamb', description: 'Tender lamb and mutton dishes', recipeCount: 25, color: '#c0392b' },
+      { _id: 'seafood', name: 'Seafood', description: 'Fresh seafood and fish recipes', recipeCount: 25, color: '#3498db' },
+      { _id: 'beef', name: 'Beef', description: 'Rich beef dishes and steaks', recipeCount: 15, color: '#8e44ad' },
+      { _id: 'pork', name: 'Pork', description: 'Flavorful pork recipes', recipeCount: 15, color: '#f39c12' }
+    ],
+    'vegetarian': [
+      { _id: 'vegetables', name: 'Vegetables', description: 'Fresh vegetable dishes', recipeCount: 50, color: '#27ae60' },
+      { _id: 'paneer', name: 'Paneer', description: 'Indian cottage cheese recipes', recipeCount: 50, color: '#2ecc71' },
+      { _id: 'tofu', name: 'Tofu', description: 'Plant-based protein dishes', recipeCount: 50, color: '#16a085' },
+      { _id: 'salads', name: 'Salads', description: 'Fresh and healthy salads', recipeCount: 50, color: '#1abc9c' },
+      { _id: 'cashews', name: 'Cashews', description: 'Nut-based recipes', recipeCount: 50, color: '#f1c40f' },
+      { _id: 'dal', name: 'Dal', description: 'Traditional lentil dishes', recipeCount: 50, color: '#e67e22' }
+    ]
+  };
 
-    fetchCategory();
-  }, [id]);
-
-  if (loading) {
-    return (
-      <SubcategoriesContainer>
-        <Container>
-          <LoadingContainer>
-            <Spinner />
-          </LoadingContainer>
-        </Container>
-      </SubcategoriesContainer>
-    );
-  }
-
-  if (!category || !category.hasSubcategories) {
-    return (
-      <SubcategoriesContainer>
-        <Container>
-          <BackButton to="/">
-            <FiArrowLeft />
-            Back to Home
-          </BackButton>
-          <div style={{ textAlign: 'center', padding: '2rem', color: '#666' }}>
-            This category doesn't have subcategories.
-          </div>
-        </Container>
-      </SubcategoriesContainer>
-    );
-  }
+  const subcategories = subcategoriesData[id] || [];
 
   return (
     <SubcategoriesContainer>
@@ -184,53 +140,36 @@ const Subcategories = () => {
           <FiArrowLeft />
           Back to Home
         </BackButton>
+
+        <PageTitle>
+          {id === 'non_vegetarian' ? 'Non-Vegetarian' : 
+           id === 'vegetarian' ? 'Vegetarian' : 
+           id === 'vegan' ? 'Vegan' : 
+           id === 'desserts' ? 'Desserts' : 'Categories'}
+        </PageTitle>
         
-        <CategoryHeader>
-          <CategoryTitle>
-            {category.icon} {category.name}
-          </CategoryTitle>
-          <CategoryDescription>{category.description}</CategoryDescription>
-          <div style={{ 
-            background: '#e8f5e8', 
-            padding: '0.5rem 1rem', 
-            borderRadius: '20px', 
-            fontSize: '0.9rem', 
-            color: '#28a745', 
-            marginTop: '1rem',
-            textAlign: 'center',
-            display: 'inline-block'
-          }}>
-            📊 {category.subcategories.length} subcategories available
-          </div>
-        </CategoryHeader>
-        
+        <PageSubtitle>
+          Choose a subcategory to explore recipes
+        </PageSubtitle>
+
         <SubcategoriesGrid>
-          {category.subcategories.map((subcategory, index) => (
+          {subcategories.map((subcategory, index) => (
             <Link 
               key={subcategory._id} 
-              to={subcategory.hasCuisines ? 
-                `/category/${id}/${subcategory._id}/cuisines` : 
-                `/category/${id}/${subcategory._id}`
-              }
+              to={`/category/${id}/${subcategory._id}`}
             >
               <SubcategoryCard
-                color={category.color}
+                color={subcategory.color}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <SubcategoryIcon>
-                  {subcategory.icon}
-                </SubcategoryIcon>
                 <SubcategoryName>{subcategory.name}</SubcategoryName>
                 <SubcategoryDescription>{subcategory.description}</SubcategoryDescription>
                 <SubcategoryCount>
-                  {subcategory.hasCuisines ? 
-                    `${subcategory.cuisines?.length || 0} cuisines available` : 
-                    `${subcategory.recipeCount} recipes available`
-                  }
+                  {subcategory.recipeCount} recipes available
                 </SubcategoryCount>
               </SubcategoryCard>
             </Link>

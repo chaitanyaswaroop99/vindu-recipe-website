@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
-import axios from 'axios';
 
 const CuisinesContainer = styled.div`
   padding: 120px 0 80px;
   min-height: 100vh;
-  background: #f8f9fa;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 1;
 `;
 
 const Container = styled.div`
@@ -21,69 +23,71 @@ const BackButton = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #28a745;
+  color: white;
   text-decoration: none;
+  font-weight: 500;
   margin-bottom: 2rem;
   padding: 0.5rem 1rem;
-  border-radius: 25px;
-  background: white;
-  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
 
   &:hover {
-    background: #f8f9fa;
-    transform: translateX(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
   }
 `;
 
-const CuisinesHeader = styled.div`
-  text-align: center;
-  margin-bottom: 3rem;
-`;
-
-const CuisinesTitle = styled.h1`
-  font-size: 3rem;
+const PageTitle = styled.h1`
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 
-const CuisinesDescription = styled.p`
-  font-size: 1.2rem;
-  color: #666;
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
+const PageSubtitle = styled.p`
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  text-align: center;
 `;
 
 const CuisinesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
 `;
 
 const CuisineCard = styled(motion.div)`
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e9ecef;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
-  text-decoration: none;
-  color: inherit;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   }
-`;
 
-const CuisineIcon = styled.div`
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-align: center;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: ${props => props.color || '#28a745'};
+  }
 `;
 
 const CuisineName = styled.h3`
@@ -91,139 +95,91 @@ const CuisineName = styled.h3`
   font-weight: 600;
   color: #333;
   margin-bottom: 0.5rem;
-  text-align: center;
 `;
 
 const CuisineDescription = styled.p`
   color: #666;
   line-height: 1.6;
   margin-bottom: 1rem;
-  text-align: center;
 `;
 
 const CuisineCount = styled.div`
-  background: #e8f5e8;
   color: #28a745;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+  font-weight: 600;
   font-size: 0.9rem;
-  font-weight: 500;
-  text-align: center;
-`;
-
-const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-`;
-
-const Spinner = styled.div`
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #28a745;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
 `;
 
 const Cuisines = () => {
   const { id, subcategoryId } = useParams();
-  const [category, setCategory] = useState(null);
-  const [subcategory, setSubcategory] = useState(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const categoryResponse = await axios.get(`/api/categories/${id}`);
-        setCategory(categoryResponse.data);
+  // Static cuisines data
+  const cuisinesData = {
+    'chicken': [
+      { _id: 'indian', name: 'Indian', description: 'Traditional Indian chicken dishes', recipeCount: 25, color: '#e74c3c' },
+      { _id: 'italian', name: 'Italian', description: 'Classic Italian chicken recipes', recipeCount: 15, color: '#c0392b' },
+      { _id: 'chinese', name: 'Chinese', description: 'Chinese chicken specialties', recipeCount: 10, color: '#3498db' }
+    ],
+    'lamb': [
+      { _id: 'indian', name: 'Indian', description: 'Traditional Indian lamb dishes', recipeCount: 15, color: '#8e44ad' },
+      { _id: 'middle_eastern', name: 'Middle Eastern', description: 'Middle Eastern lamb specialties', recipeCount: 10, color: '#f39c12' }
+    ],
+    'seafood': [
+      { _id: 'indian', name: 'Indian', description: 'Indian seafood delicacies', recipeCount: 15, color: '#3498db' },
+      { _id: 'mediterranean', name: 'Mediterranean', description: 'Mediterranean seafood dishes', recipeCount: 10, color: '#1abc9c' }
+    ],
+    'vegetables': [
+      { _id: 'indian', name: 'Indian', description: 'Traditional Indian vegetable dishes', recipeCount: 30, color: '#27ae60' },
+      { _id: 'italian', name: 'Italian', description: 'Italian vegetable specialties', recipeCount: 20, color: '#2ecc71' }
+    ],
+    'paneer': [
+      { _id: 'indian', name: 'Indian', description: 'Classic Indian paneer dishes', recipeCount: 30, color: '#16a085' },
+      { _id: 'fusion', name: 'Fusion', description: 'Modern paneer fusion recipes', recipeCount: 20, color: '#1abc9c' }
+    ]
+  };
 
-        if (subcategoryId) {
-          const subcategoryData = categoryResponse.data.subcategories?.find(
-            sub => sub._id === subcategoryId
-          );
-          setSubcategory(subcategoryData);
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [id, subcategoryId]);
-
-  if (loading) {
-    return (
-      <CuisinesContainer>
-        <Container>
-          <LoadingContainer>
-            <Spinner />
-          </LoadingContainer>
-        </Container>
-      </CuisinesContainer>
-    );
-  }
-
-  if (!subcategory || !subcategory.hasCuisines) {
-    return (
-      <CuisinesContainer>
-        <Container>
-          <BackButton to={`/category/${id}`}>
-            <FiArrowLeft />
-            Back to {category?.name}
-          </BackButton>
-          <div style={{ textAlign: 'center', padding: '2rem', color: '#666' }}>
-            No cuisine categories available for {subcategory?.name}.
-          </div>
-        </Container>
-      </CuisinesContainer>
-    );
-  }
+  const cuisines = cuisinesData[subcategoryId] || [];
 
   return (
     <CuisinesContainer>
       <Container>
         <BackButton to={`/category/${id}`}>
           <FiArrowLeft />
-          Back to {category?.name}
+          Back to {id === 'non_vegetarian' ? 'Non-Vegetarian' : 'Vegetarian'}
         </BackButton>
 
-        <CuisinesHeader>
-          <CuisinesTitle>
-            {subcategory.icon} {subcategory.name} Cuisines
-          </CuisinesTitle>
-          <CuisinesDescription>
-            Explore {subcategory.name.toLowerCase()} recipes by cuisine type
-          </CuisinesDescription>
-        </CuisinesHeader>
+        <PageTitle>
+          {subcategoryId === 'chicken' ? 'Chicken' : 
+           subcategoryId === 'lamb' ? 'Lamb' : 
+           subcategoryId === 'seafood' ? 'Seafood' : 
+           subcategoryId === 'vegetables' ? 'Vegetables' : 
+           subcategoryId === 'paneer' ? 'Paneer' : 'Cuisines'}
+        </PageTitle>
+        
+        <PageSubtitle>
+          Choose a cuisine to explore recipes
+        </PageSubtitle>
 
         <CuisinesGrid>
-          {subcategory.cuisines.map((cuisine, index) => (
-            <CuisineCard
-              key={cuisine._id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              as={Link}
+          {cuisines.map((cuisine, index) => (
+            <Link 
+              key={cuisine._id} 
               to={`/category/${id}/${subcategoryId}/${cuisine._id}`}
             >
-              <CuisineIcon>{cuisine.icon}</CuisineIcon>
-              <CuisineName>{cuisine.name}</CuisineName>
-              <CuisineDescription>{cuisine.description}</CuisineDescription>
-              <CuisineCount>
-                {cuisine.recipeCount} recipes available
-              </CuisineCount>
-            </CuisineCard>
+              <CuisineCard
+                color={cuisine.color}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <CuisineName>{cuisine.name}</CuisineName>
+                <CuisineDescription>{cuisine.description}</CuisineDescription>
+                <CuisineCount>
+                  {cuisine.recipeCount} recipes available
+                </CuisineCount>
+              </CuisineCard>
+            </Link>
           ))}
         </CuisinesGrid>
       </Container>
