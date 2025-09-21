@@ -492,28 +492,6 @@ const RecipeDetail = () => {
     fetchRecipe();
   }, [recipeId]);
 
-  const recipeEmojis = {
-    // Chicken recipes
-    'Butter Chicken': '🍛',
-    'Chicken Tikka Masala': '🍗',
-    'Grilled Lemon Herb Chicken': '🍋',
-    'Chicken Parmesan': '🧀',
-    'Thai Basil Chicken': '🌶️',
-    'Honey Garlic Chicken': '🍯',
-    'Chicken Curry': '🥘',
-    'BBQ Chicken Wings': '🍖',
-    'Chicken Biryani': '🍚',
-    'Chicken Teriyaki': '🍱',
-    'Chicken Shawarma': '🥙',
-    'Chicken Alfredo': '🍝',
-    // Seafood recipes
-    'Grilled Salmon': '🐟',
-    'Shrimp Scampi': '🦐',
-    'Fish Tacos': '🌮',
-    'Lobster Thermidor': '🦞',
-    'Crab Cakes': '🦀',
-    'Miso Glazed Cod': '🐠'
-  };
 
   const shareRecipe = () => {
     if (navigator.share) {
