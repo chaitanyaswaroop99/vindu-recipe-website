@@ -154,6 +154,8 @@ const CategoryRecipes = () => {
 
   // Category-specific recipes
   const getRecipesForCategory = () => {
+    console.log('Current subcategoryId:', subcategoryId); // Debug log
+    
     const recipes = {
       'chicken': [
         {
@@ -332,7 +334,14 @@ const CategoryRecipes = () => {
       ]
     };
 
-    return recipes[subcategoryId] || [
+    // Check if subcategoryId exists and return appropriate recipes
+    if (recipes[subcategoryId]) {
+      console.log('Found recipes for:', subcategoryId); // Debug log
+      return recipes[subcategoryId];
+    }
+    
+    console.log('Using default recipes for:', subcategoryId); // Debug log
+    return [
       {
         _id: 'default_1',
         name: 'Sample Recipe 1',
