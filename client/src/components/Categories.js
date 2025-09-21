@@ -84,11 +84,6 @@ const CategoryImage = styled.div`
   }
 `;
 
-const CategoryIcon = styled.div`
-  font-size: 3rem;
-  margin-bottom: 1rem;
-`;
-
 const CategoryName = styled.h3`
   font-size: 1.5rem;
   font-weight: 600;
@@ -107,27 +102,6 @@ const CategoryCount = styled.div`
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
-`;
-
-const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-`;
-
-const Spinner = styled.div`
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #28a745;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
 `;
 
 const Categories = () => {
