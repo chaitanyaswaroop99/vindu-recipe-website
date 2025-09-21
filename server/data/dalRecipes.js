@@ -1,0 +1,317 @@
+const { categories } = require('./categories');
+
+const dalRecipes = [
+  {
+    _id: "dal_1",
+    name: "Dal Tadka",
+    description: "Classic Indian yellow dal with tempering",
+    ingredients: [
+      "Yellow lentils (toor dal) (1 cup)",
+      "Onions (2 medium)",
+      "Tomatoes (3 medium)",
+      "Ginger-garlic paste (2 tbsp)",
+      "Turmeric powder (1 tsp)",
+      "Red chili powder (1 tbsp)",
+      "Cumin seeds (1 tsp)",
+      "Mustard seeds (1 tsp)",
+      "Curry leaves (1 sprig)",
+      "Garam masala (1 tsp)",
+      "Oil (3 tbsp)",
+      "Salt (to taste)",
+      "Fresh coriander leaves (for garnish)"
+    ],
+    instructions: [
+      "Wash and cook dal with turmeric until soft",
+      "Heat oil, add mustard and cumin seeds",
+      "Add curry leaves and sliced onions",
+      "Add ginger-garlic paste and cook until fragrant",
+      "Add tomatoes and spice powders",
+      "Add cooked dal and simmer for 10 minutes",
+      "Add garam masala and season with salt",
+      "Garnish with coriander leaves"
+    ],
+    preparationTime: 20,
+    cookingTime: 30,
+    totalTime: 50,
+    difficulty: "Easy",
+    rating: 4.8,
+    servings: 4,
+    cuisine: "Indian",
+    course: "Main Course",
+    diet: "Vegetarian",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=1000&auto=format&fit=crop",
+    youtubeLink: "https://www.youtube.com/results?search_query=Dal+Tadka+recipe",
+    isVegetarian: true,
+    isVegan: true,
+    isGlutenFree: true,
+    isDiabeticFriendly: true,
+    isHighProtein: true,
+    calories: 220,
+    protein: "14g",
+    carbs: "32g",
+    fat: "6g"
+  },
+  {
+    _id: "dal_2",
+    name: "Dal Makhani",
+    description: "Rich and creamy black dal with butter",
+    ingredients: [
+      "Black lentils (urad dal) (1 cup)",
+      "Kidney beans (rajma) (1/2 cup)",
+      "Onions (2 medium)",
+      "Tomatoes (4 medium)",
+      "Ginger-garlic paste (2 tbsp)",
+      "Red chili powder (1 tbsp)",
+      "Cumin powder (1 tsp)",
+      "Coriander powder (1 tbsp)",
+      "Garam masala (1 tsp)",
+      "Butter (4 tbsp)",
+      "Heavy cream (1/2 cup)",
+      "Oil (2 tbsp)",
+      "Salt (to taste)"
+    ],
+    instructions: [
+      "Soak lentils and beans overnight",
+      "Cook lentils and beans until soft",
+      "Heat oil and butter, add onions",
+      "Add ginger-garlic paste and spices",
+      "Add tomatoes and cook until soft",
+      "Add cooked dal and simmer for 30 minutes",
+      "Add cream and garam masala",
+      "Season with salt"
+    ],
+    preparationTime: 30,
+    cookingTime: 60,
+    totalTime: 90,
+    difficulty: "Medium",
+    rating: 4.9,
+    servings: 6,
+    cuisine: "Indian",
+    course: "Main Course",
+    diet: "Vegetarian",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=1000&auto=format&fit=crop",
+    youtubeLink: "https://www.youtube.com/results?search_query=Dal+Makhani+recipe",
+    isVegetarian: true,
+    isVegan: false,
+    isGlutenFree: true,
+    isDiabeticFriendly: false,
+    isHighProtein: true,
+    calories: 320,
+    protein: "18g",
+    carbs: "35g",
+    fat: "14g"
+  },
+  {
+    _id: "dal_3",
+    name: "Asian Lentil Soup",
+    description: "Hearty Asian-style lentil soup",
+    ingredients: [
+      "Red lentils (1 cup)",
+      "Vegetable broth (4 cups)",
+      "Onions (1 medium)",
+      "Carrots (2 medium)",
+      "Celery (2 stalks)",
+      "Garlic (3 cloves)",
+      "Ginger (1 inch)",
+      "Soy sauce (2 tbsp)",
+      "Sesame oil (1 tbsp)",
+      "Green onions (2 stalks)",
+      "Salt and pepper (to taste)",
+      "Fresh cilantro (for garnish)"
+    ],
+    instructions: [
+      "Rinse lentils until water runs clear",
+      "Heat sesame oil, add onions, carrots, and celery",
+      "Add garlic and ginger, cook until fragrant",
+      "Add lentils and vegetable broth",
+      "Simmer for 25 minutes until lentils are soft",
+      "Add soy sauce and season with salt and pepper",
+      "Garnish with green onions and cilantro"
+    ],
+    preparationTime: 15,
+    cookingTime: 30,
+    totalTime: 45,
+    difficulty: "Easy",
+    rating: 4.4,
+    servings: 4,
+    cuisine: "Asian",
+    course: "Soup",
+    diet: "Vegetarian",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=1000&auto=format&fit=crop",
+    youtubeLink: "https://www.youtube.com/results?search_query=Asian+Lentil+Soup+recipe",
+    isVegetarian: true,
+    isVegan: true,
+    isGlutenFree: false,
+    isDiabeticFriendly: true,
+    isHighProtein: true,
+    calories: 180,
+    protein: "12g",
+    carbs: "28g",
+    fat: "3g"
+  },
+  {
+    _id: "dal_4",
+    name: "Mediterranean Lentil Salad",
+    description: "Fresh Mediterranean lentil salad",
+    ingredients: [
+      "Green lentils (1 cup)",
+      "Cherry tomatoes (2 cups)",
+      "Cucumber (1 medium)",
+      "Red onion (1 medium)",
+      "Kalamata olives (1/2 cup)",
+      "Feta cheese (1/2 cup)",
+      "Olive oil (3 tbsp)",
+      "Lemon juice (2 tbsp)",
+      "Fresh oregano (2 tbsp)",
+      "Salt and pepper (to taste)",
+      "Fresh parsley (for garnish)"
+    ],
+    instructions: [
+      "Cook lentils until tender but not mushy",
+      "Drain and cool lentils",
+      "Cut vegetables into bite-sized pieces",
+      "Mix olive oil, lemon juice, and oregano",
+      "Combine lentils with vegetables",
+      "Toss with dressing",
+      "Add feta cheese and olives",
+      "Season with salt and pepper",
+      "Garnish with fresh parsley"
+    ],
+    preparationTime: 20,
+    cookingTime: 20,
+    totalTime: 40,
+    difficulty: "Easy",
+    rating: 4.5,
+    servings: 4,
+    cuisine: "Mediterranean",
+    course: "Salad",
+    diet: "Vegetarian",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=1000&auto=format&fit=crop",
+    youtubeLink: "https://www.youtube.com/results?search_query=Mediterranean+Lentil+Salad+recipe",
+    isVegetarian: true,
+    isVegan: false,
+    isGlutenFree: true,
+    isDiabeticFriendly: true,
+    isHighProtein: true,
+    calories: 240,
+    protein: "14g",
+    carbs: "28g",
+    fat: "10g"
+  },
+  {
+    _id: "dal_5",
+    name: "European Lentil Stew",
+    description: "Hearty European-style lentil stew",
+    ingredients: [
+      "Brown lentils (1 cup)",
+      "Vegetable broth (4 cups)",
+      "Onions (2 medium)",
+      "Carrots (3 medium)",
+      "Celery (3 stalks)",
+      "Potatoes (2 medium)",
+      "Garlic (4 cloves)",
+      "Fresh thyme (2 tbsp)",
+      "Bay leaves (2)",
+      "Tomato paste (2 tbsp)",
+      "Red wine (1/2 cup)",
+      "Olive oil (2 tbsp)",
+      "Salt and pepper (to taste)"
+    ],
+    instructions: [
+      "Heat olive oil, add onions and cook until soft",
+      "Add carrots, celery, and potatoes",
+      "Add garlic, thyme, and bay leaves",
+      "Add lentils and vegetable broth",
+      "Add tomato paste and red wine",
+      "Simmer for 45 minutes until lentils are tender",
+      "Season with salt and pepper",
+      "Serve hot"
+    ],
+    preparationTime: 20,
+    cookingTime: 50,
+    totalTime: 70,
+    difficulty: "Medium",
+    rating: 4.6,
+    servings: 6,
+    cuisine: "European",
+    course: "Main Course",
+    diet: "Vegetarian",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=1000&auto=format&fit=crop",
+    youtubeLink: "https://www.youtube.com/results?search_query=European+Lentil+Stew+recipe",
+    isVegetarian: true,
+    isVegan: true,
+    isGlutenFree: true,
+    isDiabeticFriendly: true,
+    isHighProtein: true,
+    calories: 220,
+    protein: "12g",
+    carbs: "35g",
+    fat: "4g"
+  }
+];
+
+// Add 45 more dal recipes to reach 50 total
+const additionalDalRecipes = [];
+for (let i = 6; i <= 50; i++) {
+  const cuisines = ["Indian", "Asian", "Mediterranean", "European"];
+  const randomCuisine = cuisines[Math.floor(Math.random() * cuisines.length)];
+  
+  additionalDalRecipes.push({
+    _id: `dal_${i}`,
+    name: `Dal ${i}`,
+    description: `Traditional lentil recipe ${i}`,
+    ingredients: [
+      "Lentils (1 cup)",
+      "Onions (1 medium)",
+      "Tomatoes (2 medium)",
+      "Spices (2 tbsp)",
+      "Oil (2 tbsp)",
+      "Salt (to taste)",
+      "Fresh herbs (2 tbsp)"
+    ],
+    instructions: [
+      "Wash and cook lentils until soft",
+      "Heat oil in a pan",
+      "Add onions and cook until golden",
+      "Add tomatoes and spices",
+      "Add cooked lentils",
+      "Simmer for 10 minutes",
+      "Season with salt and herbs",
+      "Serve hot"
+    ],
+    preparationTime: 20,
+    cookingTime: 30,
+    totalTime: 50,
+    difficulty: "Easy",
+    rating: 4.2,
+    servings: 4,
+    cuisine: randomCuisine,
+    course: "Main Course",
+    diet: "Vegetarian",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?q=80&w=1000&auto=format&fit=crop",
+    youtubeLink: "https://www.youtube.com/results?search_query=Dal+recipe",
+    isVegetarian: true,
+    isVegan: true,
+    isGlutenFree: true,
+    isDiabeticFriendly: true,
+    isHighProtein: true,
+    calories: 200,
+    protein: "12g",
+    carbs: "28g",
+    fat: "6g"
+  });
+}
+
+// Combine all dal recipes
+const allDalRecipes = [...dalRecipes, ...additionalDalRecipes];
+
+// Add category reference to all dal recipes
+const recipesWithCategory = allDalRecipes.map(recipe => ({
+  ...recipe,
+  category: categories.find(cat => cat._id === "vegetarian")
+}));
+
+module.exports = {
+  dalRecipes: recipesWithCategory,
+  categories
+};
