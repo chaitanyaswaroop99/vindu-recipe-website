@@ -157,7 +157,7 @@ const CategoryRecipes = () => {
     console.log('Current subcategoryId:', subcategoryId); // Debug log
     
     const recipes = {
-      'chicken': [
+      'Chicken': [
         {
           _id: 'chicken_1',
           name: 'Butter Chicken',
@@ -709,7 +709,7 @@ const CategoryRecipes = () => {
           cuisine: cuisineId || 'American'
         }
       ],
-      'lamb': [
+      'Lamb': [
         {
           _id: 'lamb_1',
           name: 'Mutton Curry',
@@ -739,6 +739,523 @@ const CategoryRecipes = () => {
           image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
           rating: 4.6,
           totalTime: 60,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_4',
+          name: 'Mutton Keema',
+          description: 'Spiced minced lamb curry with peas',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_5',
+          name: 'Mutton Korma',
+          description: 'Mild and creamy lamb curry with cashews',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 65,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_6',
+          name: 'Mutton Vindaloo',
+          description: 'Spicy Goan lamb curry with vinegar and chilies',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 70,
+          servings: 4,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_7',
+          name: 'Mutton Do Pyaza',
+          description: 'Lamb curry with double onions and spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 55,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_8',
+          name: 'Mutton Chettinad',
+          description: 'Spicy South Indian lamb curry with coconut',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 60,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_9',
+          name: 'Mutton Makhani',
+          description: 'Rich butter lamb curry with cream and tomatoes',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 55,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_10',
+          name: 'Mutton Kadai',
+          description: 'Spicy lamb curry cooked in a kadai with bell peppers',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_11',
+          name: 'Mutton Handi',
+          description: 'Lamb curry cooked in a traditional handi',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 60,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_12',
+          name: 'Mutton Pasanda',
+          description: 'Mild lamb curry with cream and almonds',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 55,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_13',
+          name: 'Mutton Malai',
+          description: 'Creamy lamb curry with cashews and cream',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 60,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_14',
+          name: 'Mutton Dhansak',
+          description: 'Parsi lamb curry with lentils and vegetables',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 70,
+          servings: 4,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_15',
+          name: 'Mutton Kolhapuri',
+          description: 'Spicy Maharashtrian lamb curry',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 55,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_16',
+          name: 'Mutton Xacuti',
+          description: 'Goan lamb curry with coconut and spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 65,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_17',
+          name: 'Mutton Cafreal',
+          description: 'Goan lamb curry with green masala',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 50,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_18',
+          name: 'Mutton Sukka',
+          description: 'Dry lamb curry with coconut and spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_19',
+          name: 'Mutton Ghee Roast',
+          description: 'Spicy lamb roasted in ghee with spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 60,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_20',
+          name: 'Mutton Pepper Fry',
+          description: 'Spicy lamb with black pepper and curry leaves',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 40,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_21',
+          name: 'Mutton Masala',
+          description: 'Classic lamb masala with onions and tomatoes',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 50,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_22',
+          name: 'Mutton Seekh Kebab',
+          description: 'Minced lamb kebabs with spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 40,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_23',
+          name: 'Mutton Reshmi Kebab',
+          description: 'Silky lamb kebabs with cream and spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_24',
+          name: 'Mutton Tandoori',
+          description: 'Tandoor-roasted lamb with yogurt marinade',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 50,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_25',
+          name: 'Mutton Hariyali',
+          description: 'Green lamb curry with mint and coriander',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_26',
+          name: 'Mutton Methi',
+          description: 'Lamb curry with fenugreek leaves',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 50,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_27',
+          name: 'Mutton Palak',
+          description: 'Lamb curry with spinach and spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.2,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_28',
+          name: 'Mutton Bhuna',
+          description: 'Dry-fried lamb with onions and spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 55,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_29',
+          name: 'Mutton Achari',
+          description: 'Lamb curry with pickling spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 50,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_30',
+          name: 'Mutton Lahori',
+          description: 'Punjabi lamb curry with rich gravy',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 60,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_31',
+          name: 'Mutton Karahi',
+          description: 'Spicy lamb curry cooked in a karahi',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_32',
+          name: 'Mutton Dum',
+          description: 'Slow-cooked lamb curry with aromatic spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 70,
+          servings: 4,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_33',
+          name: 'Mutton Nihari',
+          description: 'Slow-cooked lamb curry with bone marrow',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 100,
+          servings: 4,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_34',
+          name: 'Mutton Haleem',
+          description: 'Slow-cooked lamb with lentils and wheat',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 130,
+          servings: 6,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_35',
+          name: 'Mutton Pulao',
+          description: 'Fragrant rice with lamb and spices',
+          image: 'https://images.unsplash.com/photo-1631515243349-7e05b975742a?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 55,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_36',
+          name: 'Mutton Fried Rice',
+          description: 'Chinese-style lamb fried rice',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 35,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Chinese'
+        },
+        {
+          _id: 'lamb_37',
+          name: 'Mutton Manchurian',
+          description: 'Indo-Chinese lamb balls in spicy sauce',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 40,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Chinese'
+        },
+        {
+          _id: 'lamb_38',
+          name: 'Mutton 65',
+          description: 'Spicy deep-fried lamb with curry leaves',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 30,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_39',
+          name: 'Mutton Lollipop',
+          description: 'Lamb chops marinated and fried',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 35,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_40',
+          name: 'Mutton Chops',
+          description: 'Grilled lamb chops with herbs',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 40,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_41',
+          name: 'Mutton Burger',
+          description: 'Grilled lamb burger with vegetables',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 30,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'lamb_42',
+          name: 'Mutton Sandwich',
+          description: 'Grilled lamb sandwich with mayo',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.2,
+          totalTime: 25,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'lamb_43',
+          name: 'Mutton Salad',
+          description: 'Fresh lamb salad with vegetables',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.1,
+          totalTime: 30,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'lamb_44',
+          name: 'Mutton Soup',
+          description: 'Hearty lamb soup with vegetables',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 50,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'lamb_45',
+          name: 'Mutton Stew',
+          description: 'Comforting lamb stew with vegetables',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 60,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'lamb_46',
+          name: 'Mutton Raan',
+          description: 'Slow-roasted leg of lamb with spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 180,
+          servings: 8,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_47',
+          name: 'Mutton Boti',
+          description: 'Grilled lamb cubes with spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 35,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_48',
+          name: 'Mutton Galouti',
+          description: 'Soft lamb kebabs with aromatic spices',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_49',
+          name: 'Mutton Shami',
+          description: 'Spiced lamb patties with lentils',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 50,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_50',
+          name: 'Mutton Kofta',
+          description: 'Lamb meatballs in rich curry',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 55,
           servings: 4,
           difficulty: 'Medium',
           cuisine: cuisineId || 'Indian'
