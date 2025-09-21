@@ -35,6 +35,13 @@ function App() {
           <Route path="/category/:id/:subcategoryId/:cuisineId" element={<CategoryRecipes />} />
           <Route path="/category/:id/:subcategoryId" element={<CategoryRecipes />} />
           <Route path="/recipe/:recipeId" element={<RecipeDetail />} />
+          <Route path="*" element={
+            <div style={{ padding: '100px 20px', textAlign: 'center', color: 'white' }}>
+              <h1>404 - Page Not Found</h1>
+              <p>The page you're looking for doesn't exist.</p>
+              <a href="/" style={{ color: 'white', textDecoration: 'underline' }}>Go back to home</a>
+            </div>
+          } />
         </Routes>
         <Footer />
       </AppContainer>
