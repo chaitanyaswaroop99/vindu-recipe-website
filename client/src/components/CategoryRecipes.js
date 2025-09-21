@@ -157,7 +157,7 @@ const CategoryRecipes = () => {
     console.log('Current subcategoryId:', subcategoryId); // Debug log
     
     const recipes = {
-      'Chicken': [
+      'chicken': [
         {
           _id: 'chicken_1',
           name: 'Butter Chicken',
@@ -709,7 +709,7 @@ const CategoryRecipes = () => {
           cuisine: cuisineId || 'American'
         }
       ],
-      'Lamb': [
+      'lamb': [
         {
           _id: 'lamb_1',
           name: 'Mutton Curry',
@@ -1261,7 +1261,7 @@ const CategoryRecipes = () => {
           cuisine: cuisineId || 'Indian'
         }
       ],
-      'Seafood': [
+      'seafood': [
         {
           _id: 'seafood_1',
           name: 'Fish Curry',
@@ -1813,7 +1813,7 @@ const CategoryRecipes = () => {
           cuisine: cuisineId || 'Spanish'
         }
       ],
-      'Vegetables': [
+      'vegetables': [
         {
           _id: 'veg_1',
           name: 'Aloo Gobi',
@@ -2365,7 +2365,7 @@ const CategoryRecipes = () => {
           cuisine: cuisineId || 'Indian'
         }
       ],
-      'Paneer': [
+      'paneer': [
         {
           _id: 'paneer_1',
           name: 'Paneer Butter Masala',
