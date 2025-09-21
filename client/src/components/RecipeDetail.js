@@ -424,6 +424,118 @@ const RecipeDetail = () => {
         ],
         youtubeLink: 'https://www.youtube.com/watch?v=8jLdD4X4w8E'
       },
+      // More chicken recipes
+      'chicken_6': {
+        _id: 'chicken_6',
+        name: 'Chicken Vindaloo',
+        description: 'Spicy Goan chicken curry with vinegar and chilies, a fiery dish that packs a punch.',
+        image: 'https://images.unsplash.com/photo-1563379091339-03246963d4d1?w=600&h=400&fit=crop&crop=center',
+        rating: 4.7,
+        totalTime: 60,
+        servings: 4,
+        difficulty: 'Hard',
+        cuisine: 'Indian',
+        ingredients: [
+          '500g chicken pieces',
+          '2 large onions, sliced',
+          '4 tomatoes, chopped',
+          '2 tbsp vinegar',
+          '2 tbsp ginger-garlic paste',
+          '1 tsp turmeric powder',
+          '2 tsp red chili powder',
+          '1 tsp garam masala',
+          '1 tsp cumin seeds',
+          '2 bay leaves',
+          '4 cloves',
+          '1 cinnamon stick',
+          '2 tbsp oil',
+          'Salt to taste',
+          'Fresh coriander leaves'
+        ],
+        instructions: [
+          'Marinate chicken with vinegar, ginger-garlic paste, and spices for 1 hour',
+          'Heat oil and add cumin seeds, bay leaves, cloves, and cinnamon',
+          'Add sliced onions and cook until golden brown',
+          'Add tomatoes and cook until soft',
+          'Add marinated chicken and cook for 20 minutes',
+          'Add water and simmer for 30 minutes until chicken is tender',
+          'Garnish with fresh coriander and serve hot'
+        ],
+        youtubeLink: 'https://www.youtube.com/watch?v=8jLdD4X4w8E'
+      },
+      'chicken_7': {
+        _id: 'chicken_7',
+        name: 'Chicken Do Pyaza',
+        description: 'Chicken curry with double onions and spices, a flavorful dish with caramelized onions.',
+        image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=400&fit=crop&crop=center',
+        rating: 4.3,
+        totalTime: 45,
+        servings: 4,
+        difficulty: 'Medium',
+        cuisine: 'Indian',
+        ingredients: [
+          '500g chicken pieces',
+          '4 large onions (2 sliced, 2 chopped)',
+          '3 tomatoes, chopped',
+          '2 tbsp ginger-garlic paste',
+          '1 tsp turmeric powder',
+          '1 tsp red chili powder',
+          '1 tsp garam masala',
+          '1 tsp cumin powder',
+          '2 tbsp oil',
+          'Salt to taste',
+          'Fresh coriander leaves',
+          '2 green chilies'
+        ],
+        instructions: [
+          'Heat oil and fry sliced onions until golden brown, set aside',
+          'In the same oil, add chopped onions and cook until soft',
+          'Add ginger-garlic paste and cook for 2 minutes',
+          'Add tomatoes and cook until soft',
+          'Add spices and cook until oil separates',
+          'Add chicken and cook for 15 minutes',
+          'Add fried onions and simmer for 10 minutes',
+          'Garnish with fresh coriander and serve'
+        ],
+        youtubeLink: 'https://www.youtube.com/watch?v=8jLdD4X4w8E'
+      },
+      'chicken_8': {
+        _id: 'chicken_8',
+        name: 'Chicken Chettinad',
+        description: 'Spicy South Indian chicken curry with coconut, a traditional Tamil Nadu specialty.',
+        image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop&crop=center',
+        rating: 4.6,
+        totalTime: 50,
+        servings: 4,
+        difficulty: 'Medium',
+        cuisine: 'Indian',
+        ingredients: [
+          '500g chicken pieces',
+          '1 cup grated coconut',
+          '2 onions, chopped',
+          '3 tomatoes, chopped',
+          '2 tbsp ginger-garlic paste',
+          '1 tsp turmeric powder',
+          '2 tsp red chili powder',
+          '1 tsp garam masala',
+          '1 tsp fennel seeds',
+          '2 tbsp oil',
+          'Salt to taste',
+          'Fresh curry leaves',
+          'Fresh coriander leaves'
+        ],
+        instructions: [
+          'Grind coconut with fennel seeds to make a paste',
+          'Heat oil and add curry leaves',
+          'Add onions and cook until golden',
+          'Add ginger-garlic paste and cook for 2 minutes',
+          'Add tomatoes and cook until soft',
+          'Add chicken and cook for 15 minutes',
+          'Add coconut paste and simmer for 15 minutes',
+          'Garnish with fresh coriander and serve'
+        ],
+        youtubeLink: 'https://www.youtube.com/watch?v=8jLdD4X4w8E'
+      },
       // Default recipe for any other IDs
       'default': {
         _id: recipeId,
@@ -443,15 +555,18 @@ const RecipeDetail = () => {
           'Fresh herbs for garnish',
           '1 onion, chopped',
           '2 tomatoes, chopped',
-          '1 tbsp ginger-garlic paste'
+          '1 tbsp ginger-garlic paste',
+          '1 tsp turmeric powder',
+          '1 tsp red chili powder',
+          '1 tsp garam masala'
         ],
         instructions: [
           'Heat oil in a pan over medium heat',
           'Add chopped onions and cook until translucent',
           'Add ginger-garlic paste and cook for 1 minute',
           'Add tomatoes and cook until soft',
-          'Add the main ingredient and spices',
-          'Cook for 15-20 minutes until done',
+          'Add spices and cook until oil separates',
+          'Add the main ingredient and cook for 15-20 minutes',
           'Garnish with fresh herbs and serve hot'
         ],
         youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
