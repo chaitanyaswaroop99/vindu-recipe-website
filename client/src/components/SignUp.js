@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiMail, FiLock, FiEye, FiEyeOff, FiArrowLeft, FiUser } from 'react-icons/fi';
 import { useAuth } from '../contexts/AuthContext';
+import { registerUser } from '../utils/userDatabase';
 
 const SignUpContainer = styled.div`
   min-height: 100vh;
@@ -255,13 +256,15 @@ const SignUp = () => {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // For demo purposes, create account and auto-login
-      const userData = {
+      // Register user in database
+      const registeredUser = registerUser({
+        name: formData.name,
         email: formData.email,
-        name: formData.name
-      };
+        password: formData.password
+      });
       
-      // Auto-login after signup
+      // Auto-login after signup (remove password from user data)
+      const { password: _, ...userData } = registeredUser;
       login(userData);
       
       setSuccess('Account created successfully! Redirecting to home...');
@@ -271,7 +274,7 @@ const SignUp = () => {
       }, 1500);
       
     } catch (err) {
-      setError('Sign up failed. Please try again.');
+      setError(err.message || 'Sign up failed. Please try again.');
     } finally {
       setIsLoading(false);
     }

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FiMail, FiLock, FiEye, FiEyeOff, FiArrowLeft } from 'react-icons/fi';
 import { useAuth } from '../contexts/AuthContext';
+import { validateLogin } from '../utils/userDatabase';
 
 const LoginContainer = styled.div`
   min-height: 100vh;
@@ -224,26 +225,26 @@ const Login = () => {
     setError('');
 
     try {
+      // Validate form data
+      if (!formData.email || !formData.password) {
+        setError('Please fill in all fields');
+        return;
+      }
+
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // For demo purposes, accept any email/password
-      if (formData.email && formData.password) {
-        const userData = {
-          email: formData.email,
-          name: formData.email.split('@')[0]
-        };
-        
-        // Use auth context to login
-        login(userData);
-        
-        // Redirect to the page they were trying to access, or home
-        navigate(from, { replace: true });
-      } else {
-        setError('Please fill in all fields');
-      }
+      // Validate login against registered users
+      const userData = validateLogin(formData.email, formData.password);
+      
+      // Use auth context to login
+      login(userData);
+      
+      // Redirect to the page they were trying to access, or home
+      navigate(from, { replace: true });
+      
     } catch (err) {
-      setError('Login failed. Please try again.');
+      setError(err.message || 'Login failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
