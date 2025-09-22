@@ -1,19 +1,15 @@
 const sequelize = require('../config/database');
 const User = require('../models/User');
 const Recipe = require('../models/Recipe');
-const fs = require('fs');
-const path = require('path');
-
-// Create database directory if it doesn't exist
-const dbDir = path.dirname(sequelize.options.storage);
-if (!fs.existsSync(dbDir)) {
-  fs.mkdirSync(dbDir, { recursive: true });
-}
+const { setupMySQL } = require('./setup-mysql');
 
 // Initialize database
 const initDatabase = async () => {
   try {
-    console.log('🗄️ Initializing database...');
+    console.log('🐬 Initializing MySQL database...');
+    
+    // Setup MySQL database first
+    await setupMySQL();
     
     // Test database connection
     await sequelize.authenticate();
