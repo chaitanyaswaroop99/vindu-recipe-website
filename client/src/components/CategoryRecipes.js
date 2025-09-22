@@ -3543,10 +3543,6 @@ const CategoryRecipes = () => {
             <Link 
               key={recipe._id} 
               to={`/recipe/${recipe._id}`}
-              onClick={(e) => {
-                e.stopPropagation();
-                window.open(`/recipe/${recipe._id}`, '_blank');
-              }}
             >
               <RecipeCard
                 initial={{ opacity: 0, y: 30 }}
