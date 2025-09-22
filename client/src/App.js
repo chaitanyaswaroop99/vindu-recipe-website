@@ -14,7 +14,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import SearchResults from './components/SearchResults';
 import Footer from './components/Footer';
-import FoodBackground from './components/FoodBackground';
+import LiveFoodBackground from './components/LiveFoodBackground';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -27,7 +27,7 @@ function App() {
     <AuthProvider>
       <Router>
         <AppContainer>
-          <FoodBackground />
+          <LiveFoodBackground />
           <Routes>
             {/* Public routes - no authentication required */}
             <Route path="/login" element={<Login />} />
