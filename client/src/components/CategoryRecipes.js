@@ -2920,7 +2920,7 @@ const CategoryRecipes = () => {
       'vegan': [
         {
           _id: 'vegan_1',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Nutritious bowl with quinoa, roasted vegetables, and tahini dressing',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.7,
@@ -3107,7 +3107,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_18',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Sweet Potato Quinoa Bowl',
           description: 'Quinoa bowl with roasted sweet potato and tahini dressing',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.7,
@@ -3140,7 +3140,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_21',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Colorful bowl with brown rice, beans, and avocado',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.4,
@@ -3162,7 +3162,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_23',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Mediterranean bowl with chickpeas, olives, and tahini',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.5,
@@ -3173,7 +3173,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_24',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Mexican-inspired bowl with black beans and corn',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.2,
@@ -3184,7 +3184,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_25',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Asian-inspired bowl with edamame and sesame dressing',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.6,
@@ -3195,7 +3195,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_26',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Indian-inspired bowl with dal and spiced vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.4,
@@ -3206,7 +3206,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_27',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Thai-inspired bowl with coconut rice and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.5,
@@ -3217,7 +3217,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_28',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Moroccan-inspired bowl with couscous and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.3,
@@ -3228,7 +3228,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_29',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Peruvian-inspired bowl with quinoa and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.4,
@@ -3239,7 +3239,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_30',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Ethiopian-inspired bowl with injera and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.6,
@@ -3250,7 +3250,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_31',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Lebanese-inspired bowl with tabbouleh and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.2,
@@ -3261,7 +3261,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_32',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Turkish-inspired bowl with bulgur and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.3,
@@ -3272,7 +3272,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_33',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Greek-inspired bowl with orzo and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.4,
@@ -3283,7 +3283,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_34',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Spanish-inspired bowl with paella rice and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.5,
@@ -3294,7 +3294,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_35',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'French-inspired bowl with lentils and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.3,
@@ -3305,7 +3305,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_36',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'German-inspired bowl with sauerkraut and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.1,
@@ -3316,7 +3316,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_37',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Russian-inspired bowl with buckwheat and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.2,
@@ -3327,7 +3327,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_38',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Polish-inspired bowl with barley and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.3,
@@ -3338,7 +3338,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_39',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Hungarian-inspired bowl with millet and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.4,
@@ -3349,7 +3349,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_40',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Romanian-inspired bowl with cornmeal and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.2,
@@ -3360,7 +3360,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_41',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Bulgarian-inspired bowl with rice and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.3,
@@ -3371,7 +3371,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_42',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Croatian-inspired bowl with farro and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.4,
@@ -3382,7 +3382,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_43',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Serbian-inspired bowl with wheat berries and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.2,
@@ -3393,7 +3393,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_44',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Bosnian-inspired bowl with spelt and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.3,
@@ -3404,7 +3404,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_45',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Montenegrin-inspired bowl with amaranth and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.4,
@@ -3415,7 +3415,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_46',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Albanian-inspired bowl with teff and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.2,
@@ -3426,7 +3426,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_47',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Macedonian-inspired bowl with freekeh and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.3,
@@ -3437,7 +3437,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_48',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Slovenian-inspired bowl with kamut and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.4,
@@ -3448,7 +3448,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_49',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Mediterranean Bowl',
           description: 'Slovak-inspired bowl with quinoa and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.5,
@@ -3459,7 +3459,7 @@ const CategoryRecipes = () => {
         },
         {
           _id: 'vegan_50',
-          name: 'Vegan Buddha Bowl',
+          name: 'Vegan Czech Buckwheat Bowl',
           description: 'Czech-inspired bowl with buckwheat and vegetables',
           image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
           rating: 4.3,
@@ -3467,6 +3467,281 @@ const CategoryRecipes = () => {
           servings: 2,
           difficulty: 'Easy',
           cuisine: cuisineId || 'Czech'
+        },
+        {
+          _id: 'vegan_51',
+          name: 'Vegan Lentil Shepherd\'s Pie',
+          description: 'Comforting shepherd\'s pie with lentil filling and mashed potato topping',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 60,
+          servings: 6,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'British'
+        },
+        {
+          _id: 'vegan_52',
+          name: 'Vegan Mushroom Risotto',
+          description: 'Creamy arborio rice with wild mushrooms and nutritional yeast',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Italian'
+        },
+        {
+          _id: 'vegan_53',
+          name: 'Vegan Chickpea Curry',
+          description: 'Spiced chickpea curry with coconut milk and aromatic spices',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 30,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'vegan_54',
+          name: 'Vegan Thai Green Curry',
+          description: 'Aromatic green curry with vegetables and coconut milk',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Thai'
+        },
+        {
+          _id: 'vegan_55',
+          name: 'Vegan Black Bean Burgers',
+          description: 'Homemade black bean patties with spices and herbs',
+          image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 40,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'vegan_56',
+          name: 'Vegan Cauliflower Wings',
+          description: 'Crispy buffalo cauliflower wings with vegan ranch dip',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 35,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'vegan_57',
+          name: 'Vegan Pad Thai',
+          description: 'Stir-fried rice noodles with tofu, vegetables, and tamarind sauce',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 30,
+          servings: 3,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Thai'
+        },
+        {
+          _id: 'vegan_58',
+          name: 'Vegan Chocolate Avocado Mousse',
+          description: 'Rich chocolate mousse made with avocado and cocoa powder',
+          image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 15,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'International'
+        },
+        {
+          _id: 'vegan_59',
+          name: 'Vegan Coconut Curry Soup',
+          description: 'Creamy coconut soup with vegetables and aromatic spices',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Thai'
+        },
+        {
+          _id: 'vegan_60',
+          name: 'Vegan Stuffed Bell Peppers',
+          description: 'Bell peppers stuffed with quinoa, vegetables, and herbs',
+          image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 50,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Mediterranean'
+        },
+        {
+          _id: 'vegan_61',
+          name: 'Vegan Tempeh Stir Fry',
+          description: 'Indonesian tempeh with vegetables in savory sauce',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 20,
+          servings: 3,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Indonesian'
+        },
+        {
+          _id: 'vegan_62',
+          name: 'Vegan Ratatouille',
+          description: 'French vegetable stew with eggplant, zucchini, and tomatoes',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 45,
+          servings: 6,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'French'
+        },
+        {
+          _id: 'vegan_63',
+          name: 'Vegan Energy Balls',
+          description: 'No-bake protein balls with dates, nuts, and cocoa',
+          image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 20,
+          servings: 12,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'International'
+        },
+        {
+          _id: 'vegan_64',
+          name: 'Vegan Gazpacho',
+          description: 'Cold Spanish tomato soup with cucumber and herbs',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.2,
+          totalTime: 15,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Spanish'
+        },
+        {
+          _id: 'vegan_65',
+          name: 'Vegan Mushroom Stroganoff',
+          description: 'Creamy mushroom stroganoff with cashew cream sauce',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 30,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Russian'
+        },
+        {
+          _id: 'vegan_66',
+          name: 'Vegan Chia Pudding',
+          description: 'Creamy chia seed pudding with berries and coconut milk',
+          image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 10,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'International'
+        },
+        {
+          _id: 'vegan_67',
+          name: 'Vegan Vegetable Paella',
+          description: 'Spanish rice dish with saffron, vegetables, and herbs',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 50,
+          servings: 6,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Spanish'
+        },
+        {
+          _id: 'vegan_68',
+          name: 'Vegan Hummus Bowl',
+          description: 'Mediterranean bowl with hummus, vegetables, and pita',
+          image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 20,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Middle Eastern'
+        },
+        {
+          _id: 'vegan_69',
+          name: 'Vegan Lentil Bolognese',
+          description: 'Rich lentil sauce over pasta with herbs and tomatoes',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 40,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Italian'
+        },
+        {
+          _id: 'vegan_70',
+          name: 'Vegan Sweet Potato Hash',
+          description: 'Roasted sweet potato hash with vegetables and herbs',
+          image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 35,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'vegan_71',
+          name: 'Vegan Coconut Rice',
+          description: 'Fragrant coconut rice with vegetables and spices',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Thai'
+        },
+        {
+          _id: 'vegan_72',
+          name: 'Vegan Zucchini Noodles',
+          description: 'Spiralized zucchini with marinara sauce and herbs',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.2,
+          totalTime: 15,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Italian'
+        },
+        {
+          _id: 'vegan_73',
+          name: 'Vegan Cashew Cheese',
+          description: 'Creamy cashew-based cheese with herbs and nutritional yeast',
+          image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 20,
+          servings: 8,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'International'
+        },
+        {
+          _id: 'vegan_74',
+          name: 'Vegan Miso Soup',
+          description: 'Traditional Japanese soup with tofu, seaweed, and vegetables',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 15,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Japanese'
+        },
+        {
+          _id: 'vegan_75',
+          name: 'Vegan Banana Bread',
+          description: 'Moist banana bread made with flax eggs and plant milk',
+          image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 60,
+          servings: 8,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'American'
         }
       ],
       'desserts': [
