@@ -2,7 +2,6 @@ import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import styled from 'styled-components';
-import { FiLoader } from 'react-icons/fi';
 
 const LoadingContainer = styled.div`
   min-height: 100vh;
