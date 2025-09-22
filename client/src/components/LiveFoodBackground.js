@@ -97,23 +97,23 @@ const FloatingEmoji = styled.div`
 `;
 
 const LiveFoodBackground = () => {
-  // Diverse food images for transitions
+  // Diverse cooked/prepared food images for transitions (no raw meat)
   const foodImages = [
-    'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=1920&h=1080&fit=crop&crop=center', // Mixed meat platter
+    'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=1920&h=1080&fit=crop&crop=center', // Cooked mixed platter
     'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=1920&h=1080&fit=crop&crop=center', // Vegetarian dishes
-    'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=1920&h=1080&fit=crop&crop=center', // Butter chicken
     'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1920&h=1080&fit=crop&crop=center', // Chocolate cake
     'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1920&h=1080&fit=crop&crop=center', // Healthy bowl
     'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&h=1080&fit=crop&crop=center', // Pasta
     'https://images.unsplash.com/photo-1563379091339-03246963d4d1?w=1920&h=1080&fit=crop&crop=center', // Curry
-    'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&h=1080&fit=crop&crop=center', // Stew
-    'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=1920&h=1080&fit=crop&crop=center', // Asian food
     'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1920&h=1080&fit=crop&crop=center', // Pizza
     'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=1920&h=1080&fit=crop&crop=center', // Sushi
     'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1920&h=1080&fit=crop&crop=center', // Pancakes
     'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1920&h=1080&fit=crop&crop=center', // Tacos
-    'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=1920&h=1080&fit=crop&crop=center', // Burger
-    'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop&crop=center'  // Salad
+    'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop&crop=center', // Salad
+    'https://images.unsplash.com/photo-1551782450-a2134b4fcb5f?w=1920&h=1080&fit=crop&crop=center', // Burger
+    'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1920&h=1080&fit=crop&crop=center', // Pizza slice
+    'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&h=1080&fit=crop&crop=center', // Pasta dish
+    'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=1920&h=1080&fit=crop&crop=center'  // Cooked meal
   ];
 
   const foodEmojis = ['🍽️', '🍕', '🍜', '🍛', '🍲', '🥘', '🍱', '🍣', '🍤', '🍳', '🥗', '🌮', '🌯', '🥙', '🍔', '🍟', '🌭', '🥪', '🍞', '🥐', '🧀', '🍰', '🍪', '🍩', '🍫', '🍭', '🍬', '🍯', '🥜', '🍇', '🍓', '🍒', '🍑', '🍊', '🍋', '🍌', '🍉', '🍈', '🍐', '🍎'];
