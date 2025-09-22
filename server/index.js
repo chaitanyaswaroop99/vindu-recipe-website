@@ -3,6 +3,9 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 
+// Initialize database
+const { initDatabase } = require('./database/init');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -11,9 +14,11 @@ app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-console.log('Using mock data for development');
+// Database routes
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/recipes', require('./routes/recipes'));
 
-// Routes
+// Legacy routes (keeping for backward compatibility)
 app.use('/api/chicken-recipes', require('./routes/chickenRecipes'));
 app.use('/api/seafood-recipes', require('./routes/seafoodRecipes'));
 app.use('/api/lamb-recipes', require('./routes/lambRecipes'));
@@ -40,6 +45,20 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Initialize database and start server
+const startServer = async () => {
+  try {
+    await initDatabase();
+    
+    app.listen(PORT, () => {
+      console.log(`🚀 Server is running on port ${PORT}`);
+      console.log(`📊 Database initialized successfully`);
+      console.log(`🔗 API endpoints available at http://localhost:${PORT}/api`);
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error);
+    process.exit(1);
+  }
+};
+
+startServer();
