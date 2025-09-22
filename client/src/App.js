@@ -12,6 +12,7 @@ import CategoryRecipes from './components/CategoryRecipes';
 import RecipeDetail from './components/RecipeDetail';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import SearchResults from './components/SearchResults';
 import Footer from './components/Footer';
 import FoodBackground from './components/FoodBackground';
 
@@ -31,6 +32,13 @@ function App() {
             {/* Public routes - no authentication required */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/search" element={
+              <ProtectedRoute>
+                <Header />
+                <SearchResults />
+                <Footer />
+              </ProtectedRoute>
+            } />
             
             {/* Protected routes - authentication required */}
             <Route path="/" element={

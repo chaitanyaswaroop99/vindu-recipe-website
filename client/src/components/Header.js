@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FiMenu, FiX, FiSearch, FiUser, FiLogOut } from 'react-icons/fi';
 import { useAuth } from '../contexts/AuthContext';
@@ -65,7 +65,7 @@ const NavLink = styled(Link)`
   }
 `;
 
-const SearchBar = styled.div`
+const SearchBar = styled.form`
   position: relative;
   display: flex;
   align-items: center;
@@ -78,10 +78,15 @@ const SearchInput = styled.input`
   outline: none;
   transition: border-color 0.3s ease;
   background: #f8f9fa;
+  width: 250px;
   
   &:focus {
     border-color: #28a745;
     background: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    width: 200px;
   }
 `;
 
@@ -89,6 +94,7 @@ const SearchIcon = styled(FiSearch)`
   position: absolute;
   left: 0.8rem;
   color: #999;
+  pointer-events: none;
 `;
 
 const AuthButtons = styled.div`
@@ -190,11 +196,22 @@ const MobileMenuButton = styled.button`
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
     setIsMenuOpen(false);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery('');
+      setIsMenuOpen(false);
+    }
   };
 
   return (
@@ -206,9 +223,13 @@ const Header = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/#categories">Categories</NavLink>
           
-          <SearchBar>
+          <SearchBar onSubmit={handleSearch}>
             <SearchIcon />
-            <SearchInput placeholder="Search dishes..." />
+            <SearchInput 
+              placeholder="Search dishes..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </SearchBar>
 
           {user ? (
