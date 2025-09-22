@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const fadeInOut = keyframes`
@@ -97,8 +97,6 @@ const FloatingEmoji = styled.div`
 `;
 
 const LiveFoodBackground = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   // Diverse food images for transitions
   const foodImages = [
     'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=1920&h=1080&fit=crop&crop=center', // Mixed meat platter
@@ -120,13 +118,6 @@ const LiveFoodBackground = () => {
 
   const foodEmojis = ['🍽️', '🍕', '🍜', '🍛', '🍲', '🥘', '🍱', '🍣', '🍤', '🍳', '🥗', '🌮', '🌯', '🥙', '🍔', '🍟', '🌭', '🥪', '🍞', '🥐', '🧀', '🍰', '🍪', '🍩', '🍫', '🍭', '🍬', '🍯', '🥜', '🍇', '🍓', '🍒', '🍑', '🍊', '🍋', '🍌', '🍉', '🍈', '🍐', '🍎'];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % foodImages.length);
-    }, 5000); // Change image every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [foodImages.length]);
 
   return (
     <BackgroundContainer>
