@@ -4460,6 +4460,283 @@ const CategoryRecipes = () => {
           difficulty: 'Easy',
           cuisine: cuisineId || 'Swiss'
         }
+      ],
+      'tofu': [
+        {
+          _id: 'tofu_1',
+          name: 'Mapo Tofu',
+          description: 'Spicy Sichuan tofu with ground pork and fermented beans',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Chinese'
+        },
+        {
+          _id: 'tofu_2',
+          name: 'Tofu Scramble',
+          description: 'Vegan scrambled eggs made with crumbled tofu',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 15,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'tofu_3',
+          name: 'Tofu Teriyaki',
+          description: 'Grilled tofu with sweet teriyaki glaze',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 20,
+          servings: 3,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Japanese'
+        },
+        {
+          _id: 'tofu_4',
+          name: 'Tofu Curry',
+          description: 'Coconut milk curry with tofu and vegetables',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 30,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Thai'
+        },
+        {
+          _id: 'tofu_5',
+          name: 'Tofu Stir Fry',
+          description: 'Quick tofu stir fry with vegetables and soy sauce',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 15,
+          servings: 3,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Asian'
+        },
+        {
+          _id: 'tofu_6',
+          name: 'Tofu Pad Thai',
+          description: 'Thai rice noodles with tofu and tamarind sauce',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 25,
+          servings: 3,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Thai'
+        },
+        {
+          _id: 'tofu_7',
+          name: 'Tofu Burger',
+          description: 'Plant-based burger patty made with tofu',
+          image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 35,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'tofu_8',
+          name: 'Tofu Tikka',
+          description: 'Indian marinated tofu grilled in tandoor style',
+          image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 30,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'tofu_9',
+          name: 'Tofu Miso Soup',
+          description: 'Traditional Japanese soup with tofu and seaweed',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 15,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Japanese'
+        },
+        {
+          _id: 'tofu_10',
+          name: 'Tofu Satay',
+          description: 'Indonesian grilled tofu skewers with peanut sauce',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indonesian'
+        },
+        {
+          _id: 'tofu_11',
+          name: 'Tofu Ramen',
+          description: 'Japanese noodle soup with tofu and vegetables',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 20,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Japanese'
+        },
+        {
+          _id: 'tofu_12',
+          name: 'Tofu Tacos',
+          description: 'Mexican-style tacos with spiced tofu filling',
+          image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 20,
+          servings: 3,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Mexican'
+        },
+        {
+          _id: 'tofu_13',
+          name: 'Tofu Lasagna',
+          description: 'Layered pasta with tofu ricotta and marinara',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 60,
+          servings: 6,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Italian'
+        },
+        {
+          _id: 'tofu_14',
+          name: 'Tofu Fried Rice',
+          description: 'Asian-style fried rice with tofu and vegetables',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 20,
+          servings: 3,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Chinese'
+        },
+        {
+          _id: 'tofu_15',
+          name: 'Tofu Salad',
+          description: 'Fresh salad with marinated tofu and vegetables',
+          image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
+          rating: 4.2,
+          totalTime: 15,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'International'
+        },
+        {
+          _id: 'tofu_16',
+          name: 'Tofu Curry Puffs',
+          description: 'Crispy pastry filled with spiced tofu curry',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 45,
+          servings: 6,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Malaysian'
+        },
+        {
+          _id: 'tofu_17',
+          name: 'Tofu Dumplings',
+          description: 'Steamed dumplings filled with tofu and vegetables',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 50,
+          servings: 4,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Chinese'
+        },
+        {
+          _id: 'tofu_18',
+          name: 'Tofu Noodles',
+          description: 'Stir-fried noodles with tofu and vegetables',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 20,
+          servings: 3,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Asian'
+        },
+        {
+          _id: 'tofu_19',
+          name: 'Tofu Soup',
+          description: 'Light vegetable soup with tofu cubes',
+          image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&crop=center',
+          rating: 4.1,
+          totalTime: 20,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'International'
+        },
+        {
+          _id: 'tofu_20',
+          name: 'Tofu Wraps',
+          description: 'Fresh vegetable wraps with marinated tofu',
+          image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center',
+          rating: 4.3,
+          totalTime: 15,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'International'
+        },
+        {
+          _id: 'tofu_21',
+          name: 'Tofu Kebabs',
+          description: 'Grilled tofu skewers with vegetables and spices',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 30,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Middle Eastern'
+        },
+        {
+          _id: 'tofu_22',
+          name: 'Tofu Pancakes',
+          description: 'Savory pancakes made with tofu and vegetables',
+          image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop&crop=center',
+          rating: 4.2,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Korean'
+        },
+        {
+          _id: 'tofu_23',
+          name: 'Tofu Curry Bowl',
+          description: 'Rice bowl topped with tofu curry and vegetables',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 25,
+          servings: 2,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Thai'
+        },
+        {
+          _id: 'tofu_24',
+          name: 'Tofu Sushi',
+          description: 'Plant-based sushi rolls with tofu and vegetables',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Japanese'
+        },
+        {
+          _id: 'tofu_25',
+          name: 'Tofu Chocolate Mousse',
+          description: 'Rich chocolate mousse made with silken tofu',
+          image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 15,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'International'
+        }
       ]
     };
 
