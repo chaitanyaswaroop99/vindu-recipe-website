@@ -190,6 +190,7 @@ const DropdownMenu = styled.div`
   visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
   transform: ${props => props.isOpen ? 'translateY(0)' : 'translateY(-10px)'};
   transition: all 0.3s ease;
+  margin-top: 0.5rem;
 
   @media (max-width: 768px) {
     position: static;
@@ -273,6 +274,7 @@ const Header = () => {
   };
 
   const handleDropdownToggle = () => {
+    console.log('Dropdown toggle clicked, current state:', isDropdownOpen);
     setIsDropdownOpen(!isDropdownOpen);
   };
 
@@ -331,7 +333,7 @@ const Header = () => {
                 }} />
               </ProfileButton>
               
-              <DropdownMenu isOpen={isDropdownOpen}>
+              <DropdownMenu isOpen={true}>
                 <DropdownItem onClick={handleEditProfile}>
                   <DropdownIcon>
                     <FiEdit3 />
