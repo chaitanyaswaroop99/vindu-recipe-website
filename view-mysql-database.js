@@ -84,7 +84,8 @@ async function viewMySQLDatabase() {
     console.log('\n📋 Please ensure:');
     console.log('   1. MySQL server is running');
     console.log('   2. Database and tables exist');
-    console.log('   3. Connection credentials are correct');
+    console.log('   3. Connection credentials are correct in server/.env');
+    console.log('   4. Run: node migrate-to-mysql.js first');
   } finally {
     if (connection) {
       await connection.end();

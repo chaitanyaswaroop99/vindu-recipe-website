@@ -23,46 +23,32 @@ const initDatabase = async () => {
     const userCount = await User.count();
     const recipeCount = await Recipe.count();
     
-    if (userCount === 0) {
+    if (userCount === 0 && recipeCount === 0) {
       console.log('📝 Seeding initial data...');
-      await seedInitialData();
-    }
-    
-    console.log(`📊 Database ready: ${userCount} users, ${recipeCount} recipes`);
-    
-  } catch (error) {
-    console.error('❌ Database initialization failed:', error);
-    throw error;
-  }
-};
-
-// Seed initial data
-const seedInitialData = async () => {
-  try {
-    // Create admin user
-    const adminUser = await User.create({
-      name: 'Admin',
-      email: 'admin@vindu.com',
-      password: 'admin123',
-      role: 'admin'
-    });
-    console.log('✅ Admin user created');
-    
-    // Create sample user
-    const sampleUser = await User.create({
-      name: 'John Doe',
-      email: 'john@example.com',
-      password: 'password123',
-      role: 'user'
-    });
-    console.log('✅ Sample user created');
-    
-    // Create sample recipes
-    const sampleRecipes = [
-      {
+      
+      // Create admin user
+      const adminUser = await User.create({
+        name: 'Admin',
+        email: 'admin@vindu.com',
+        password: 'admin123',
+        role: 'admin',
+      });
+      console.log('✅ Admin user created');
+      
+      // Create sample user
+      const sampleUser = await User.create({
+        name: 'John Doe',
+        email: 'john@example.com',
+        password: 'password123',
+        role: 'user',
+      });
+      console.log('✅ Sample user created');
+      
+      // Create sample recipes
+      await Recipe.create({
         name: 'Butter Chicken',
-        description: 'Creamy tomato-based curry with tender chicken pieces',
-        image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&crop=center',
+        description: 'Creamy tomato-based curry with tender chicken pieces, a classic Indian dish.',
+        image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=600&h=400&fit=crop&crop=center',
         rating: 4.8,
         totalTime: 45,
         servings: 4,
@@ -80,23 +66,30 @@ const seedInitialData = async () => {
           '1 tsp turmeric powder',
           '2 tsp red chili powder',
           '1 tsp garam masala',
-          'Salt to taste'
+          '1 tsp cumin powder',
+          '1 tsp coriander powder',
+          'Salt to taste',
+          'Fresh coriander leaves',
+          '1/2 cup yogurt for marination',
+          '1 tbsp kasuri methi'
         ],
         instructions: [
-          'Marinate chicken with yogurt and spices for 30 minutes',
-          'Heat butter in a pan, add onion puree and cook until golden',
-          'Add tomato puree and cook until oil separates',
-          'Add marinated chicken and cook for 15-20 minutes',
-          'Stir in garam masala and heavy cream',
-          'Simmer for 10 minutes and serve hot'
+          'Marinate chicken with yogurt, ginger-garlic paste, turmeric, red chili powder, and salt for 30 minutes.',
+          'Heat butter in a pan, add onion puree and cook until golden brown.',
+          'Add tomato puree and cook until oil separates.',
+          'Add marinated chicken and cook for 15-20 minutes until chicken is tender.',
+          'Stir in garam masala, cumin powder, coriander powder, and kasuri methi.',
+          'Add heavy cream and simmer for 10 minutes.',
+          'Garnish with fresh coriander leaves and serve hot with naan or rice.'
         ],
         youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        userId: null // System recipe
-      },
-      {
+        userId: adminUser.id,
+      });
+      
+      await Recipe.create({
         name: 'Chocolate Cake',
-        description: 'Rich and moist chocolate cake with chocolate frosting',
-        image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center',
+        description: 'Rich and moist chocolate cake with chocolate frosting.',
+        image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop&crop=center',
         rating: 4.8,
         totalTime: 60,
         servings: 8,
@@ -105,39 +98,40 @@ const seedInitialData = async () => {
         category: 'Desserts',
         subcategory: 'Cakes',
         ingredients: [
-          '2 cups all-purpose flour',
-          '1 cup cocoa powder',
-          '2 cups sugar',
+          '1.5 cups all-purpose flour',
+          '1.5 cups granulated sugar',
+          '3/4 cup unsweetened cocoa powder',
+          '1.5 tsp baking soda',
           '1 tsp baking powder',
-          '1 tsp baking soda',
-          '1/2 tsp salt',
+          '1 tsp salt',
           '1 cup buttermilk',
           '1/2 cup vegetable oil',
           '2 large eggs',
-          '2 tsp vanilla extract',
-          '1 cup hot water'
+          '1 tsp vanilla extract',
+          '1 cup boiling water'
         ],
         instructions: [
-          'Preheat oven to 350°F and grease cake pans',
-          'Mix dry ingredients in a large bowl',
-          'Mix wet ingredients in another bowl',
-          'Combine wet and dry ingredients until smooth',
-          'Pour batter into prepared pans',
-          'Bake for 30-35 minutes until toothpick comes out clean',
-          'Cool completely before frosting'
+          'Preheat oven to 350°F (175°C). Grease and flour two 9-inch round baking pans.',
+          'In a large bowl, whisk together flour, sugar, cocoa, baking soda, baking powder, and salt.',
+          'Add buttermilk, oil, eggs, and vanilla extract; beat on medium speed for 2 minutes.',
+          'Stir in boiling water (batter will be thin). Pour evenly into prepared pans.',
+          'Bake for 30-35 minutes, or until a wooden skewer inserted into the center comes out clean.',
+          'Cool in pans for 10 minutes, then remove to wire racks to cool completely.',
+          'Frost as desired.'
         ],
         youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        userId: null // System recipe
-      }
-    ];
+        userId: sampleUser.id,
+      });
+      
+      console.log('✅ Sample recipes created');
+    }
     
-    await Recipe.bulkCreate(sampleRecipes);
-    console.log('✅ Sample recipes created');
+    console.log(`📊 Database ready: ${userCount} users, ${recipeCount} recipes`);
     
   } catch (error) {
-    console.error('❌ Error seeding data:', error);
+    console.error('❌ Database initialization failed:', error);
     throw error;
   }
 };
 
-module.exports = { initDatabase, sequelize };
+module.exports = { initDatabase };
