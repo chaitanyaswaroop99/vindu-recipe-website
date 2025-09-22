@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FiMenu, FiX, FiSearch } from 'react-icons/fi';
+import { FiMenu, FiX, FiSearch, FiUser, FiLogOut } from 'react-icons/fi';
 
 const HeaderContainer = styled.header`
   background: rgba(255, 255, 255, 0.95);
@@ -90,6 +90,90 @@ const SearchIcon = styled(FiSearch)`
   color: #999;
 `;
 
+const AuthButtons = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+`;
+
+const AuthButton = styled(Link)`
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &.login {
+    color: #333;
+    border: 1px solid #e9ecef;
+    
+    &:hover {
+      background: #f8f9fa;
+      border-color: #28a745;
+      color: #28a745;
+    }
+  }
+
+  &.signup {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    }
+  }
+`;
+
+const UserMenu = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+`;
+
+const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+  font-weight: 500;
+`;
+
+const LogoutButton = styled.button`
+  background: none;
+  border: 1px solid #e9ecef;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #f8f9fa;
+    border-color: #dc3545;
+    color: #dc3545;
+  }
+`;
+
 const MobileMenuButton = styled.button`
   display: none;
   background: none;
@@ -105,6 +189,21 @@ const MobileMenuButton = styled.button`
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    setIsMenuOpen(false);
+  };
 
   return (
     <HeaderContainer>
@@ -119,6 +218,29 @@ const Header = () => {
             <SearchIcon />
             <SearchInput placeholder="Search dishes..." />
           </SearchBar>
+
+          {user ? (
+            <UserMenu>
+              <UserInfo>
+                <FiUser />
+                {user.name}
+              </UserInfo>
+              <LogoutButton onClick={handleLogout}>
+                <FiLogOut />
+                Logout
+              </LogoutButton>
+            </UserMenu>
+          ) : (
+            <AuthButtons>
+              <AuthButton to="/login" className="login">
+                <FiUser />
+                Login
+              </AuthButton>
+              <AuthButton to="/signup" className="signup">
+                Sign Up
+              </AuthButton>
+            </AuthButtons>
+          )}
         </NavLinks>
         
         <MobileMenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>

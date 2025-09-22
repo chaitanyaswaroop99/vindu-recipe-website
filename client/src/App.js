@@ -8,6 +8,8 @@ import Subcategories from './components/Subcategories';
 import Cuisines from './components/Cuisines';
 import CategoryRecipes from './components/CategoryRecipes';
 import RecipeDetail from './components/RecipeDetail';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import FoodBackground from './components/FoodBackground';
 
@@ -35,6 +37,8 @@ function App() {
           <Route path="/category/:id/:subcategoryId/:cuisineId" element={<CategoryRecipes />} />
           <Route path="/category/:id/:subcategoryId" element={<CategoryRecipes />} />
           <Route path="/recipe/:recipeId" element={<RecipeDetail />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={
             <div style={{ padding: '100px 20px', textAlign: 'center', color: 'white' }}>
               <h1>404 - Page Not Found</h1>
