@@ -23,7 +23,8 @@ const HeroTitle = styled(motion.h1)`
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #333;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -33,10 +34,11 @@ const HeroTitle = styled(motion.h1)`
 const HeroSubtitle = styled(motion.p)`
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.9);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 `;
 
 // Removed unused styled components
