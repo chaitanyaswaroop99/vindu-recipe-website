@@ -258,6 +258,10 @@ const Header = () => {
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
 
+  // Debug logging
+  console.log('Header render - user:', user);
+  console.log('Header render - isAuthenticated:', !!user);
+
   const handleLogout = () => {
     logout();
     setIsMenuOpen(false);
@@ -323,39 +327,50 @@ const Header = () => {
           </SearchBar>
 
           {user ? (
-            <UserMenu ref={dropdownRef}>
-              <ProfileButton onClick={handleDropdownToggle}>
-                <FiUser />
-                {user.name}
-                <FiChevronDown style={{ 
-                  transform: isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.3s ease'
-                }} />
-              </ProfileButton>
+            <div>
+              <div style={{ 
+                background: 'white', 
+                padding: '10px', 
+                border: '2px solid red',
+                marginBottom: '10px'
+              }}>
+                <strong>DEBUG: User logged in as: {user.name}</strong>
+              </div>
               
-              <DropdownMenu isOpen={true}>
-                <DropdownItem onClick={handleEditProfile}>
-                  <DropdownIcon>
-                    <FiEdit3 />
-                  </DropdownIcon>
-                  Edit Personal Info
-                </DropdownItem>
+              <UserMenu ref={dropdownRef}>
+                <ProfileButton onClick={handleDropdownToggle}>
+                  <FiUser />
+                  {user.name}
+                  <FiChevronDown style={{ 
+                    transform: isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 0.3s ease'
+                  }} />
+                </ProfileButton>
                 
-                <DropdownItem onClick={handleResetPassword}>
-                  <DropdownIcon>
-                    <FiKey />
-                  </DropdownIcon>
-                  Reset Password
-                </DropdownItem>
-                
-                <DropdownItem onClick={handleLogout} className="logout">
-                  <DropdownIcon>
-                    <FiLogOut />
-                  </DropdownIcon>
-                  Logout
-                </DropdownItem>
-              </DropdownMenu>
-            </UserMenu>
+                <DropdownMenu isOpen={true}>
+                  <DropdownItem onClick={handleEditProfile}>
+                    <DropdownIcon>
+                      <FiEdit3 />
+                    </DropdownIcon>
+                    Edit Personal Info
+                  </DropdownItem>
+                  
+                  <DropdownItem onClick={handleResetPassword}>
+                    <DropdownIcon>
+                      <FiKey />
+                    </DropdownIcon>
+                    Reset Password
+                  </DropdownItem>
+                  
+                  <DropdownItem onClick={handleLogout} className="logout">
+                    <DropdownIcon>
+                      <FiLogOut />
+                    </DropdownIcon>
+                    Logout
+                  </DropdownItem>
+                </DropdownMenu>
+              </UserMenu>
+            </div>
           ) : (
             <AuthButtons>
               <AuthButton to="/login" className="login">
