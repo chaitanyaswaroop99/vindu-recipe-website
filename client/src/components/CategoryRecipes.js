@@ -707,6 +707,116 @@ const CategoryRecipes = () => {
           servings: 4,
           difficulty: 'Medium',
           cuisine: cuisineId || 'American'
+        },
+        {
+          _id: 'chicken_51',
+          name: 'Chicken Teriyaki',
+          description: 'Japanese-style grilled chicken with sweet teriyaki glaze',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 30,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Japanese'
+        },
+        {
+          _id: 'chicken_52',
+          name: 'Chicken Marsala',
+          description: 'Italian chicken dish with mushrooms and Marsala wine sauce',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 35,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Italian'
+        },
+        {
+          _id: 'chicken_53',
+          name: 'Chicken Piccata',
+          description: 'Italian chicken with lemon, capers, and white wine sauce',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Italian'
+        },
+        {
+          _id: 'chicken_54',
+          name: 'Chicken Cordon Bleu',
+          description: 'Chicken breast stuffed with ham and cheese, breaded and fried',
+          image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 45,
+          servings: 4,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'French'
+        },
+        {
+          _id: 'chicken_55',
+          name: 'Chicken Fajitas',
+          description: 'Mexican spiced chicken strips with peppers and onions',
+          image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Mexican'
+        },
+        {
+          _id: 'chicken_56',
+          name: 'Chicken Parmesan',
+          description: 'Breaded chicken breast topped with marinara and mozzarella',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 40,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Italian-American'
+        },
+        {
+          _id: 'chicken_57',
+          name: 'Chicken Satay',
+          description: 'Indonesian grilled chicken skewers with peanut sauce',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 35,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indonesian'
+        },
+        {
+          _id: 'chicken_58',
+          name: 'Chicken Shawarma',
+          description: 'Middle Eastern spiced chicken with garlic sauce and pita',
+          image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 30,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Middle Eastern'
+        },
+        {
+          _id: 'chicken_59',
+          name: 'Chicken Adobo',
+          description: 'Filipino chicken braised in vinegar, soy sauce, and garlic',
+          image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 50,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Filipino'
+        },
+        {
+          _id: 'chicken_60',
+          name: 'Chicken Tikka',
+          description: 'Indian marinated chicken grilled in tandoor oven',
+          image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 40,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
         }
       ],
       'lamb': [
@@ -984,6 +1094,61 @@ const CategoryRecipes = () => {
           servings: 4,
           difficulty: 'Medium',
           cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_26',
+          name: 'Lamb Kofta',
+          description: 'Spiced lamb meatballs in rich tomato gravy',
+          image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=300&fit=crop&crop=center',
+          rating: 4.6,
+          totalTime: 40,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_27',
+          name: 'Lamb Biryani',
+          description: 'Aromatic rice dish with spiced lamb and basmati rice',
+          image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop&crop=center',
+          rating: 4.8,
+          totalTime: 90,
+          servings: 6,
+          difficulty: 'Hard',
+          cuisine: cuisineId || 'Indian'
+        },
+        {
+          _id: 'lamb_28',
+          name: 'Lamb Rogan Josh',
+          description: 'Kashmiri lamb curry with yogurt and aromatic spices',
+          image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=300&fit=crop&crop=center',
+          rating: 4.7,
+          totalTime: 60,
+          servings: 4,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'Kashmiri'
+        },
+        {
+          _id: 'lamb_29',
+          name: 'Lamb Chops',
+          description: 'Grilled lamb chops with herbs and garlic',
+          image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop&crop=center',
+          rating: 4.5,
+          totalTime: 25,
+          servings: 4,
+          difficulty: 'Easy',
+          cuisine: cuisineId || 'Mediterranean'
+        },
+        {
+          _id: 'lamb_30',
+          name: 'Lamb Stew',
+          description: 'Hearty lamb stew with root vegetables and herbs',
+          image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&crop=center',
+          rating: 4.4,
+          totalTime: 120,
+          servings: 6,
+          difficulty: 'Medium',
+          cuisine: cuisineId || 'British'
         },
         {
           _id: 'lamb_26',
