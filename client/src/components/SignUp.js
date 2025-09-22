@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiMail, FiLock, FiEye, FiEyeOff, FiArrowLeft, FiUser } from 'react-icons/fi';
+import { useAuth } from '../contexts/AuthContext';
 
 const SignUpContainer = styled.div`
   min-height: 100vh;
@@ -217,6 +218,7 @@ const SignUp = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     setFormData({
@@ -253,12 +255,20 @@ const SignUp = () => {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // For demo purposes, create account
-      setSuccess('Account created successfully! Redirecting to login...');
+      // For demo purposes, create account and auto-login
+      const userData = {
+        email: formData.email,
+        name: formData.name
+      };
+      
+      // Auto-login after signup
+      login(userData);
+      
+      setSuccess('Account created successfully! Redirecting to home...');
       
       setTimeout(() => {
-        navigate('/login');
-      }, 2000);
+        navigate('/');
+      }, 1500);
       
     } catch (err) {
       setError('Sign up failed. Please try again.');

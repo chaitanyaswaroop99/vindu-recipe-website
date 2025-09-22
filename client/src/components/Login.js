@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FiMail, FiLock, FiEye, FiEyeOff, FiArrowLeft } from 'react-icons/fi';
+import { useAuth } from '../contexts/AuthContext';
 
 const LoginContainer = styled.div`
   min-height: 100vh;
@@ -203,6 +204,11 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login } = useAuth();
+
+  // Get the page user was trying to access before login
+  const from = location.state?.from?.pathname || '/';
 
   const handleChange = (e) => {
     setFormData({
@@ -223,13 +229,16 @@ const Login = () => {
       
       // For demo purposes, accept any email/password
       if (formData.email && formData.password) {
-        // Store user session (in real app, this would be handled by backend)
-        localStorage.setItem('user', JSON.stringify({
+        const userData = {
           email: formData.email,
           name: formData.email.split('@')[0]
-        }));
+        };
         
-        navigate('/');
+        // Use auth context to login
+        login(userData);
+        
+        // Redirect to the page they were trying to access, or home
+        navigate(from, { replace: true });
       } else {
         setError('Please fill in all fields');
       }

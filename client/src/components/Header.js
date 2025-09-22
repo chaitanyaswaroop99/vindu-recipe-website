@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FiMenu, FiX, FiSearch, FiUser, FiLogOut } from 'react-icons/fi';
+import { useAuth } from '../contexts/AuthContext';
 
 const HeaderContainer = styled.header`
   background: rgba(255, 255, 255, 0.95);
@@ -189,19 +190,10 @@ const MobileMenuButton = styled.button`
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    // Check if user is logged in
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      setUser(JSON.parse(userData));
-    }
-  }, []);
+  const { user, logout } = useAuth();
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
-    setUser(null);
+    logout();
     setIsMenuOpen(false);
   };
 
