@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FiSearch, FiClock, FiStar, FiUsers, FiArrowLeft } from 'react-icons/fi';
+import { FiClock, FiStar, FiUsers, FiArrowLeft } from 'react-icons/fi';
 
 const SearchContainer = styled.div`
   min-height: 100vh;
