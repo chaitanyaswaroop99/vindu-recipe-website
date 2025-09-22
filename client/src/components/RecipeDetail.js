@@ -264,7 +264,7 @@ const RecipeDetail = () => {
           'Simmer for 10 minutes until the curry thickens',
           'Garnish with fresh coriander leaves and serve hot with naan or rice'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       'chicken_2': {
         _id: 'chicken_2',
@@ -303,7 +303,7 @@ const RecipeDetail = () => {
           'Simmer for 10-15 minutes until flavors blend',
           'Garnish with fresh coriander and serve with rice or naan'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       'chicken_3': {
         _id: 'chicken_3',
@@ -346,7 +346,7 @@ const RecipeDetail = () => {
           'Cover and cook on dum (steam) for 20-25 minutes',
           'Garnish with fresh herbs and serve hot'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       'chicken_4': {
         _id: 'chicken_4',
@@ -384,7 +384,7 @@ const RecipeDetail = () => {
           'Add water if needed and simmer until chicken is tender',
           'Garnish with fresh coriander and serve'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       'chicken_5': {
         _id: 'chicken_5',
@@ -422,7 +422,7 @@ const RecipeDetail = () => {
           'Add cream and garam masala',
           'Simmer for 10 minutes and garnish with coriander'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       // More chicken recipes
       'chicken_6': {
@@ -461,7 +461,7 @@ const RecipeDetail = () => {
           'Add water and simmer for 30 minutes until chicken is tender',
           'Garnish with fresh coriander and serve hot'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       'chicken_7': {
         _id: 'chicken_7',
@@ -497,7 +497,7 @@ const RecipeDetail = () => {
           'Add fried onions and simmer for 10 minutes',
           'Garnish with fresh coriander and serve'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       'chicken_8': {
         _id: 'chicken_8',
@@ -534,7 +534,7 @@ const RecipeDetail = () => {
           'Add coconut paste and simmer for 15 minutes',
           'Garnish with fresh coriander and serve'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       'chicken_9': {
         _id: 'chicken_9',
@@ -570,7 +570,7 @@ const RecipeDetail = () => {
           'Simmer for 10 minutes until thick',
           'Garnish with fresh coriander and serve'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       'chicken_10': {
         _id: 'chicken_10',
@@ -607,7 +607,7 @@ const RecipeDetail = () => {
           'Add spices and simmer for 5 minutes',
           'Garnish with fresh coriander and serve'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       'chicken_11': {
         _id: 'chicken_11',
@@ -643,7 +643,7 @@ const RecipeDetail = () => {
           'Add water and simmer for 30 minutes',
           'Garnish with fresh coriander and serve'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       'chicken_12': {
         _id: 'chicken_12',
@@ -678,7 +678,7 @@ const RecipeDetail = () => {
           'Add spices and stir-fry for 5 minutes',
           'Garnish with fresh coriander and serve'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       },
       // Default recipe for any other IDs
       'default': {
@@ -713,7 +713,7 @@ const RecipeDetail = () => {
           'Add the main ingredient and cook for 15-20 minutes',
           'Garnish with fresh herbs and serve hot'
         ],
-        youtubeLink: 'https://www.youtube.com/watch?v=a03c6gsP0aE'
+        youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       }
     };
 
