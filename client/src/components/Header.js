@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { FiMenu, FiX, FiSearch, FiUser, FiLogOut } from 'react-icons/fi';
+import { FiMenu, FiX, FiSearch, FiUser, FiLogOut, FiEdit3, FiKey, FiChevronDown } from 'react-icons/fi';
 import { useAuth } from '../contexts/AuthContext';
 
 const HeaderContainer = styled.header`
@@ -154,15 +154,7 @@ const UserMenu = styled.div`
   }
 `;
 
-const UserInfo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #333;
-  font-weight: 500;
-`;
-
-const LogoutButton = styled.button`
+const ProfileButton = styled.button`
   background: none;
   border: 1px solid #e9ecef;
   padding: 0.5rem 1rem;
@@ -173,12 +165,75 @@ const LogoutButton = styled.button`
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
+  font-weight: 500;
 
   &:hover {
     background: #f8f9fa;
-    border-color: #dc3545;
-    color: #dc3545;
+    border-color: #4f46e5;
+    color: #4f46e5;
   }
+`;
+
+const DropdownMenu = styled.div`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  min-width: 200px;
+  z-index: 1000;
+  overflow: hidden;
+  opacity: ${props => props.isOpen ? 1 : 0};
+  visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+  transform: ${props => props.isOpen ? 'translateY(0)' : 'translateY(-10px)'};
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    position: static;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+`;
+
+const DropdownItem = styled.button`
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-align: left;
+
+  &:hover {
+    background: #f8f9fa;
+    color: #4f46e5;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #f1f3f4;
+  }
+
+  &.logout {
+    color: #dc3545;
+    
+    &:hover {
+      background: rgba(220, 53, 69, 0.1);
+      color: #dc3545;
+    }
+  }
+`;
+
+const DropdownIcon = styled.div`
+  font-size: 1rem;
+  opacity: 0.7;
 `;
 
 const MobileMenuButton = styled.button`
@@ -196,13 +251,16 @@ const MobileMenuButton = styled.button`
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
 
   const handleLogout = () => {
     logout();
     setIsMenuOpen(false);
+    setIsDropdownOpen(false);
   };
 
   const handleSearch = (e) => {
@@ -213,6 +271,36 @@ const Header = () => {
       setIsMenuOpen(false);
     }
   };
+
+  const handleDropdownToggle = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleEditProfile = () => {
+    // TODO: Navigate to edit profile page
+    console.log('Edit profile clicked');
+    setIsDropdownOpen(false);
+  };
+
+  const handleResetPassword = () => {
+    // TODO: Navigate to reset password page
+    console.log('Reset password clicked');
+    setIsDropdownOpen(false);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <HeaderContainer>
@@ -233,15 +321,38 @@ const Header = () => {
           </SearchBar>
 
           {user ? (
-            <UserMenu>
-              <UserInfo>
+            <UserMenu ref={dropdownRef}>
+              <ProfileButton onClick={handleDropdownToggle}>
                 <FiUser />
                 {user.name}
-              </UserInfo>
-              <LogoutButton onClick={handleLogout}>
-                <FiLogOut />
-                Logout
-              </LogoutButton>
+                <FiChevronDown style={{ 
+                  transform: isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transition: 'transform 0.3s ease'
+                }} />
+              </ProfileButton>
+              
+              <DropdownMenu isOpen={isDropdownOpen}>
+                <DropdownItem onClick={handleEditProfile}>
+                  <DropdownIcon>
+                    <FiEdit3 />
+                  </DropdownIcon>
+                  Edit Personal Info
+                </DropdownItem>
+                
+                <DropdownItem onClick={handleResetPassword}>
+                  <DropdownIcon>
+                    <FiKey />
+                  </DropdownIcon>
+                  Reset Password
+                </DropdownItem>
+                
+                <DropdownItem onClick={handleLogout} className="logout">
+                  <DropdownIcon>
+                    <FiLogOut />
+                  </DropdownIcon>
+                  Logout
+                </DropdownItem>
+              </DropdownMenu>
             </UserMenu>
           ) : (
             <AuthButtons>
