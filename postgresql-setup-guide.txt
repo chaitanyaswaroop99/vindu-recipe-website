@@ -1,0 +1,105 @@
+POSTGRESQL SETUP GUIDE FOR WINDOWS
+
+Your project is now configured for PostgreSQL!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📥 DOWNLOAD & INSTALL POSTGRESQL
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Download PostgreSQL:
+   https://www.postgresql.org/download/windows/
+
+2. Run the installer:
+   • Choose installation directory (default: C:\Program Files\PostgreSQL\15)
+   • Select components: PostgreSQL Server, pgAdmin 4, Stack Builder
+   • Set data directory (default: C:\Program Files\PostgreSQL\15\data)
+   • Set password for 'postgres' user (default: postgres)
+   • Set port (default: 5432)
+   • Choose locale (default: Default locale)
+
+3. Complete installation:
+   • Stack Builder will open (optional - install additional tools)
+   • PostgreSQL service will start automatically
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🔧 CONFIGURE YOUR PROJECT
+═══════════════════════════════════════════════════════════════════════════════
+
+Your project is already configured with these settings:
+• Host: localhost
+• Port: 5432
+• Database: vindu_recipes
+• Username: postgres
+• Password: postgres
+
+If you changed the password during installation, update server/.env:
+DB_PASSWORD=your_actual_password
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🚀 TEST YOUR SETUP
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Test database connection:
+   node view-postgresql-database.js
+
+2. Start your server:
+   cd server && npm start
+
+3. Start your frontend:
+   cd client && npm start
+
+4. Visit your website:
+   http://localhost:3000
+
+═══════════════════════════════════════════════════════════════════════════════
+
+💡 POSTGRESQL BENEFITS
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Advanced data types (JSON, arrays, etc.)
+✅ Excellent performance and scalability
+✅ ACID compliance
+✅ Full-text search capabilities
+✅ Extensible with custom functions
+✅ Strong community support
+✅ Industry standard for complex applications
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🛠️ TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+
+If you get connection errors:
+
+1. Check PostgreSQL service:
+   • Open Services (services.msc)
+   • Find "postgresql-x64-15" (or similar)
+   • Ensure it's running
+
+2. Check credentials:
+   • Verify username/password in server/.env
+   • Default: postgres / postgres
+
+3. Check port:
+   • Default port is 5432
+   • Update DB_PORT in .env if different
+
+4. Firewall:
+   • Allow PostgreSQL through Windows Firewall
+   • Usually done automatically during installation
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎉 YOU'RE READY TO GO!
+═══════════════════════════════════════════════════════════════════════════════
+
+Once PostgreSQL is installed and running:
+• Your website will have a powerful database backend
+• All user authentication will work
+• Recipe data will be stored persistently
+• You can scale to thousands of recipes
+
+Happy coding! 🚀

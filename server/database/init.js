@@ -1,15 +1,15 @@
 const sequelize = require('../config/database');
 const User = require('../models/User');
 const Recipe = require('../models/Recipe');
-const { setupMySQL } = require('./setup-mysql');
+const { setupPostgreSQL } = require('./setup-postgresql');
 
 // Initialize database
 const initDatabase = async () => {
   try {
-    console.log('🐬 Initializing MySQL database...');
+    console.log('🐘 Initializing PostgreSQL database...');
     
-    // Setup MySQL database first
-    await setupMySQL();
+    // Setup PostgreSQL database first
+    await setupPostgreSQL();
     
     // Test database connection
     await sequelize.authenticate();
